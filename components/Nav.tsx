@@ -4,10 +4,10 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 const links = [
-  { label: "Projects", href: "#projects" },
-  { label: "Research", href: "#research" },
-  { label: "Experience", href: "#experience" },
   { label: "About", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Experience", href: "#experience" },
+  { label: "Research", href: "#research" },
 ];
 
 export function Nav() {
