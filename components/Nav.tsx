@@ -72,34 +72,7 @@ export function Nav() {
           </a>
         ))}
 
-        {mounted && (
-          <button
-            onClick={() => setTheme(theme === "dark" ? "light" : "dark")}
-            aria-label="Toggle theme"
-            style={{
-              background: "var(--surface-2)",
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius)",
-              padding: "5px 10px",
-              cursor: "pointer",
-              fontSize: "12px",
-              color: "var(--text-secondary)",
-              transition: "border-color 0.15s, color 0.15s",
-            }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.borderColor = "var(--primary)";
-              e.currentTarget.style.color = "var(--text)";
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.borderColor = "var(--border)";
-              e.currentTarget.style.color = "var(--text-secondary)";
-            }}
-          >
-            {theme === "dark" ? "Light" : "Dark"}
-          </button>
-        )}
-
-        <a
+<a
           href="/Aishi-Agarwal-Resume.pdf"
           target="_blank"
           rel="noopener noreferrer"
