@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const PROMPT = "find me the best AI/ML intern at Georgia Tech";
+const PROMPT = "who's doing standout AI work at georgia tech?";
 
 const RESPONSE_LINES = [
   { text: "Aishi Agarwal", type: "name" },
