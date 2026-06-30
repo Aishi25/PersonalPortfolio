@@ -101,15 +101,15 @@ export function Hero() {
     },
     meta: {
       fontFamily: "var(--font-mono), monospace",
-      fontSize: "12px",
+      fontSize: "16px",
       color: "var(--text-secondary)",
       marginBottom: "0.5rem",
     },
     divider: {
       fontFamily: "var(--font-mono), monospace",
-      fontSize: "11px",
+      fontSize: "14px",
       color: "var(--border-strong)",
-      margin: "0.5rem 0",
+      margin: "0.6rem 0",
     },
     bullet: {
       fontFamily: "var(--font-mono), monospace",
@@ -119,7 +119,7 @@ export function Hero() {
     },
     footer: {
       fontFamily: "var(--font-mono), monospace",
-      fontSize: "12px",
+      fontSize: "16px",
       color: "var(--primary-light)",
       marginTop: "0.5rem",
     },
@@ -184,9 +184,9 @@ export function Hero() {
                 <div
                   style={{
                     fontFamily: "var(--font-mono), monospace",
-                    fontSize: "11px",
+                    fontSize: "14px",
                     color: "var(--text-muted)",
-                    marginBottom: "6px",
+                    marginBottom: "8px",
                     letterSpacing: "0.08em",
                   }}
                 >
@@ -197,8 +197,8 @@ export function Hero() {
                     background: "var(--surface-2)",
                     border: "1px solid var(--border)",
                     borderRadius: "var(--radius)",
-                    padding: "10px 14px",
-                    fontSize: "14px",
+                    padding: "12px 16px",
+                    fontSize: "16px",
                     color: "var(--text)",
                     display: "inline-block",
                     maxWidth: "100%",
@@ -215,7 +215,7 @@ export function Hero() {
               <div
                 style={{
                   fontFamily: "var(--font-mono), monospace",
-                  fontSize: "12px",
+                  fontSize: "14px",
                   color: "var(--primary-light)",
                   marginBottom: "1rem",
                 }}
@@ -231,7 +231,7 @@ export function Hero() {
                 <div
                   style={{
                     fontFamily: "var(--font-mono), monospace",
-                    fontSize: "11px",
+                    fontSize: "14px",
                     color: "var(--primary-light)",
                     marginBottom: "12px",
                     letterSpacing: "0.08em",
