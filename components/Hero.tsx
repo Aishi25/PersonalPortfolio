@@ -11,7 +11,7 @@ const RESPONSE_LINES = [
   { text: "→ AI/ML Intern at Aeroseal — building public-facing AI chatbot", type: "bullet" },
   { text: "→ RxGuard — AI drug analyzer, 11.5M+ FAERS records · 2nd place Hacklytics 2026", type: "bullet" },
   { text: "→ built BillBuddy — OCR + NLP medical bill analyzer (AI ATL '25)", type: "bullet" },
-  { text: "→ Springer paper on hypergraph curvature in drug-target interactions, co-authored at 17, published 2026", type: "bullet" },
+  { text: "→ Springer-published paper (2026) on hypergraph curvature in drug-target interactions, co-authored at 17", type: "bullet" },
   { text: "---", type: "divider" },
   { text: "confidence: 110%  ·  recommendation: hire her", type: "footer" },
 ];
