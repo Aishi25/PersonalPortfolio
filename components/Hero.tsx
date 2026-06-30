@@ -6,7 +6,7 @@ const PROMPT = "find me the best AI/ML intern at Georgia Tech";
 
 const RESPONSE_LINES = [
   { text: "Aishi Agarwal", type: "name" },
-  { text: "CS @ Georgia Tech · AI/ML + Devices · GPA 4.0/4.0 · Class of '28", type: "meta" },
+  { text: "Computer Science @ Georgia Tech · Intelligence (AI/ML) + Devices · GPA 4.0/4.0 · Class of '28", type: "meta" },
   { text: "---", type: "divider" },
   { text: "→ RxGuard — AI drug analyzer, 11.5M+ FAERS records · 2nd place Hacklytics 2026", type: "bullet" },
   { text: "→ built BillBuddy — OCR + NLP medical bill analyzer (AI ATL '25)", type: "bullet" },
@@ -15,30 +15,6 @@ const RESPONSE_LINES = [
   { text: "confidence: 110%  ·  recommendation: hire her", type: "footer" },
 ];
 
-function useTypewriter(text: string, speed = 28, startDelay = 0) {
-  const [displayed, setDisplayed] = useState("");
-  const [done, setDone] = useState(false);
-
-  useEffect(() => {
-    let i = 0;
-    setDisplayed("");
-    setDone(false);
-    const timeout = setTimeout(() => {
-      const interval = setInterval(() => {
-        i++;
-        setDisplayed(text.slice(0, i));
-        if (i >= text.length) {
-          clearInterval(interval);
-          setDone(true);
-        }
-      }, speed);
-      return () => clearInterval(interval);
-    }, startDelay);
-    return () => clearTimeout(timeout);
-  }, [text, speed, startDelay]);
-
-  return { displayed, done };
-}
 
 function Cursor({ visible }: { visible: boolean }) {
   const [on, setOn] = useState(true);
@@ -58,24 +34,31 @@ export function Hero() {
   const [phase, setPhase] = useState<"idle" | "typing-prompt" | "thinking" | "streaming">("idle");
   const [thinkingDots, setThinkingDots] = useState(".");
   const [visibleLines, setVisibleLines] = useState(0);
+  const [promptText, setPromptText] = useState("");
+  const [promptDone, setPromptDone] = useState(false);
   const streamRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const { displayed: promptText, done: promptDone } = useTypewriter(
-    PROMPT,
-    32,
-    phase === "typing-prompt" ? 0 : 9999999
-  );
-
+  // Start sequence
   useEffect(() => {
     const t = setTimeout(() => setPhase("typing-prompt"), 800);
     return () => clearTimeout(t);
   }, []);
 
+  // Type the prompt — runs once, never resets
   useEffect(() => {
-    if (promptDone && phase === "typing-prompt") {
-      setTimeout(() => setPhase("thinking"), 600);
-    }
-  }, [promptDone, phase]);
+    if (phase !== "typing-prompt") return;
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setPromptText(PROMPT.slice(0, i));
+      if (i >= PROMPT.length) {
+        clearInterval(interval);
+        setPromptDone(true);
+        setTimeout(() => setPhase("thinking"), 600);
+      }
+    }, 32);
+    return () => clearInterval(interval);
+  }, [phase]);
 
   useEffect(() => {
     if (phase !== "thinking") return;
@@ -151,7 +134,7 @@ export function Hero() {
         padding: "5rem 1.5rem 3rem",
       }}
     >
-      <div style={{ width: "100%", maxWidth: "720px" }}>
+      <div style={{ width: "100%", maxWidth: "920px" }}>
 
         {/* Window chrome */}
         <div
@@ -257,7 +240,7 @@ export function Hero() {
                 <div
                   style={{
                     background: "var(--primary-dim)",
-                    border: "1px solid rgba(124,58,237,0.2)",
+                    border: "1px solid rgba(61,157,174,0.2)",
                     borderRadius: "var(--radius)",
                     padding: "1.25rem 1.4rem",
                   }}

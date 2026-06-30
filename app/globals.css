@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #7C3AED;
-  --primary-light: #A78BFA;
-  --primary-dim: rgba(124, 58, 237, 0.12);
+  --primary: #3D9DAE;
+  --primary-light: #6BBFCC;
+  --primary-dim: rgba(61, 157, 174, 0.12);
   --accent: #F97316;
   --accent-dim: rgba(249, 115, 22, 0.12);
 
