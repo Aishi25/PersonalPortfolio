@@ -11,7 +11,7 @@ const RESPONSE_LINES = [
   { text: "→ AI/ML Intern @ Aeroseal — building public-facing AI chatbot", type: "bullet" },
   { text: "→ RxGuard — AI drug analyzer, 11.5M+ FAERS records · 2nd place Hacklytics 2026", type: "bullet" },
   { text: "→ BillBuddy — OCR + NLP medical bill analyzer · AI ATL 2025", type: "bullet" },
-  { text: "→ Springer-published paper (2026) on hypergraph curvature in drug-target interactions, co-authored at 17", type: "bullet" },
+  { text: "→ Springer paper (2026) — hypergraph curvature in drug-target interactions, co-authored at 17", type: "bullet" },
   { text: "---", type: "divider" },
   { text: "confidence: 110%  ·  recommendation: hire her", type: "footer" },
 ];
@@ -113,9 +113,9 @@ export function Hero() {
     },
     bullet: {
       fontFamily: "var(--font-mono), monospace",
-      fontSize: "13px",
+      fontSize: "16px",
       color: "var(--text-secondary)",
-      lineHeight: 1.7,
+      lineHeight: 1.9,
     },
     footer: {
       fontFamily: "var(--font-mono), monospace",
@@ -176,7 +176,7 @@ export function Hero() {
           </div>
 
           {/* Chat body */}
-          <div style={{ padding: "1.75rem 1.5rem", minHeight: "340px" }}>
+          <div style={{ padding: "2rem 2rem", minHeight: "480px" }}>
 
             {/* User message */}
             {phase !== "idle" && (
