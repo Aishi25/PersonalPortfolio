@@ -22,15 +22,15 @@
 }
 
 .dark {
-  --bg: #050508;
-  --surface: #0D0C14;
-  --surface-2: #131220;
-  --border: #1E1C2E;
-  --border-strong: #2E2B44;
+  --bg: #04080A;
+  --surface: #0A1214;
+  --surface-2: #101C1F;
+  --border: #1A2D30;
+  --border-strong: #244044;
 
-  --text: #FAF8FF;
-  --text-secondary: #A09CB8;
-  --text-muted: #5A5670;
+  --text: #F0FAF8;
+  --text-secondary: #8BBCC4;
+  --text-muted: #4A7A82;
 }
 
 @theme inline {

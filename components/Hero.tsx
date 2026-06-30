@@ -8,9 +8,10 @@ const RESPONSE_LINES = [
   { text: "Aishi Agarwal", type: "name" },
   { text: "Computer Science @ Georgia Tech · Intelligence (AI/ML) + Devices · GPA 4.0/4.0 · Class of '28", type: "meta" },
   { text: "---", type: "divider" },
+  { text: "→ AI/ML Intern at Aeroseal — building public-facing AI chatbot", type: "bullet" },
   { text: "→ RxGuard — AI drug analyzer, 11.5M+ FAERS records · 2nd place Hacklytics 2026", type: "bullet" },
   { text: "→ built BillBuddy — OCR + NLP medical bill analyzer (AI ATL '25)", type: "bullet" },
-  { text: "→ Springer-published paper on Ricci curvature, co-authored at 17, published 2026", type: "bullet" },
+  { text: "→ Springer paper on hypergraph curvature in drug-target interactions, co-authored at 17, published 2026", type: "bullet" },
   { text: "---", type: "divider" },
   { text: "confidence: 110%  ·  recommendation: hire her", type: "footer" },
 ];
@@ -134,7 +135,7 @@ export function Hero() {
         padding: "5rem 1.5rem 3rem",
       }}
     >
-      <div style={{ width: "100%", maxWidth: "920px" }}>
+      <div style={{ width: "100%", maxWidth: "min(1100px, 88vw)" }}>
 
         {/* Window chrome */}
         <div
@@ -163,10 +164,11 @@ export function Hero() {
             <span
               style={{
                 fontFamily: "var(--font-mono), monospace",
-                fontSize: "11px",
-                color: "var(--text-muted)",
+                fontSize: "13px",
+                color: "var(--primary-light)",
                 marginLeft: "8px",
-                letterSpacing: "0.05em",
+                letterSpacing: "0.06em",
+                fontWeight: 500,
               }}
             >
               recruiter-gpt · context: 128k tokens
@@ -240,7 +242,7 @@ export function Hero() {
                 <div
                   style={{
                     background: "var(--primary-dim)",
-                    border: "1px solid rgba(61,157,174,0.2)",
+                    border: "1px solid rgba(61,157,174,0.3)",
                     borderRadius: "var(--radius)",
                     padding: "1.25rem 1.4rem",
                   }}
