@@ -281,7 +281,7 @@ export function Hero() {
                         onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
                         onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
                       >
-                        see projects →
+                        See Projects →
                       </a>
                       <a
                         href="/Aishi-Agarwal-Resume.pdf"
@@ -307,7 +307,7 @@ export function Hero() {
                           e.currentTarget.style.color = "var(--text-secondary)";
                         }}
                       >
-                        download resume ↓
+                        Download Resume ↓
                       </a>
                     </div>
                   )}
@@ -329,7 +329,7 @@ export function Hero() {
               letterSpacing: "0.1em",
             }}
           >
-            scroll to explore ↓
+            Scroll to explore ↓
           </div>
         )}
       </div>

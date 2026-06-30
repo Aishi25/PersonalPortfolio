@@ -4,10 +4,10 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 const links = [
-  { label: "projects", href: "#projects" },
-  { label: "research", href: "#research" },
-  { label: "experience", href: "#experience" },
-  { label: "about", href: "#about" },
+  { label: "Projects", href: "#projects" },
+  { label: "Research", href: "#research" },
+  { label: "Experience", href: "#experience" },
+  { label: "About", href: "#about" },
 ];
 
 export function Nav() {
@@ -95,7 +95,7 @@ export function Nav() {
               e.currentTarget.style.color = "var(--text-secondary)";
             }}
           >
-            {theme === "dark" ? "light" : "dark"}
+            {theme === "dark" ? "Light" : "Dark"}
           </button>
         )}
 
@@ -116,7 +116,7 @@ export function Nav() {
           onMouseEnter={(e) => (e.currentTarget.style.opacity = "0.85")}
           onMouseLeave={(e) => (e.currentTarget.style.opacity = "1")}
         >
-          resume
+          Resume
         </a>
       </div>
     </nav>

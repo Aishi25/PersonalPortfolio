@@ -25,9 +25,9 @@ export function Footer() {
 
       <div style={{ display: "flex", gap: "1.5rem" }}>
         {[
-          { label: "email", href: "mailto:aishiagarwal11@gmail.com" },
-          { label: "linkedin", href: "https://www.linkedin.com/in/aishi-agarwal/" },
-          { label: "github", href: "https://github.com/Aishi25" },
+          { label: "Email", href: "mailto:aishiagarwal11@gmail.com" },
+          { label: "LinkedIn", href: "https://www.linkedin.com/in/aishi-agarwal/" },
+          { label: "GitHub", href: "https://github.com/Aishi25" },
         ].map((l) => (
           <a
             key={l.label}
