@@ -113,7 +113,7 @@ export function Hero() {
     },
     bullet: {
       fontFamily: "var(--font-mono), monospace",
-      fontSize: "16px",
+      fontSize: "15px",
       color: "var(--text-secondary)",
       lineHeight: 1.9,
     },
