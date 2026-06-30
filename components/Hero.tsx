@@ -2,7 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 
-const PROMPT = "who's doing standout AI work at georgia tech?";
+const PROMPT = "who's doing standout AI work at Georgia Tech?";
 
 const RESPONSE_LINES = [
   { text: "Aishi Agarwal", type: "name" },
@@ -10,7 +10,7 @@ const RESPONSE_LINES = [
   { text: "---", type: "divider" },
   { text: "→ AI/ML Intern @ Aeroseal — building public-facing AI chatbot", type: "bullet" },
   { text: "→ RxGuard — AI drug analyzer, 11.5M+ FAERS records · 2nd place Hacklytics 2026", type: "bullet" },
-  { text: "→ BillBuddy — OCR + NLP medical bill analyzer · AI ATL 2025", type: "bullet" },
+  { text: "→ GT Big Data Big Impact — LSTM economic forecasting + Gemini-powered club chatbot", type: "bullet" },
   { text: "→ Springer paper (2026) — hypergraph curvature in drug-target interactions, co-authored at 17", type: "bullet" },
   { text: "---", type: "divider" },
   { text: "confidence: 110%  ·  recommendation: hire her", type: "footer" },
