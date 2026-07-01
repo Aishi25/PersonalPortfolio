@@ -30,6 +30,7 @@ function TraitTypewriter() {
           fontSize: "clamp(1.25rem, 3vw, 1.75rem)",
           fontWeight: 700,
           letterSpacing: "-0.01em",
+          fontFamily: "var(--font-mono), monospace",
           background: "linear-gradient(90deg, var(--primary-light) 0%, var(--primary) 50%, #2a7a8a 100%)",
           WebkitBackgroundClip: "text",
           WebkitTextFillColor: "transparent",
