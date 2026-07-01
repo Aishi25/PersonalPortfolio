@@ -70,7 +70,7 @@ export function About() {
             actually working.&rdquo;
           </p>
 
-          {/* Trait pills */}
+          {/* Trait pills with staggered animation */}
           <div
             style={{
               display: "flex",
@@ -79,9 +79,10 @@ export function About() {
               marginBottom: "1.75rem",
             }}
           >
-            {TRAITS.map((t) => (
+            {TRAITS.map((t, i) => (
               <span
                 key={t}
+                className="trait-pill"
                 style={{
                   fontFamily: "var(--font-mono), monospace",
                   fontSize: "13px",
@@ -90,7 +91,8 @@ export function About() {
                   background: "var(--primary-dim)",
                   border: "1px solid rgba(61,157,174,0.3)",
                   borderRadius: "var(--radius)",
-                  padding: "4px 14px",
+                  padding: "5px 16px",
+                  animationDelay: `${i * 0.15}s`,
                 }}
               >
                 {t}
@@ -145,51 +147,147 @@ export function About() {
             </span>
           </p>
 
-          {/* Status + contact */}
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "1.25rem",
-              flexWrap: "wrap",
-            }}
-          >
+          {/* Status badge */}
+          <div style={{ marginBottom: "1.5rem" }}>
             <span
               style={{
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: "12px",
-                color: "var(--text-muted)",
-                background: "var(--surface-2)",
-                border: "1px solid var(--border)",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "8px",
+                fontSize: "14px",
+                fontWeight: 500,
+                color: "var(--primary-light)",
+                background: "var(--primary-dim)",
+                border: "1px solid rgba(61,157,174,0.3)",
                 borderRadius: "var(--radius)",
-                padding: "5px 12px",
+                padding: "8px 16px",
               }}
             >
-              ✦ open to Summer 2027 internships
+              <span
+                style={{
+                  width: "7px",
+                  height: "7px",
+                  borderRadius: "50%",
+                  background: "var(--primary-light)",
+                  display: "inline-block",
+                  animation: "pulse 2s ease-in-out infinite",
+                }}
+              />
+              Open to Summer 2027 internships
             </span>
-            <a
-              href="mailto:aishi.agarwal.cs@gmail.com"
+          </div>
+
+          {/* Contact card */}
+          <div
+            style={{
+              border: "1px solid var(--border)",
+              borderRadius: "var(--radius-lg)",
+              padding: "1.25rem 1.5rem",
+              background: "var(--surface)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.75rem",
+              maxWidth: "360px",
+            }}
+          >
+            <div
               style={{
                 fontFamily: "var(--font-mono), monospace",
-                fontSize: "12px",
-                color: "var(--primary-light)",
-                textDecoration: "none",
-                transition: "color 0.15s",
+                fontSize: "10px",
+                letterSpacing: "0.12em",
+                color: "var(--text-muted)",
+                textTransform: "uppercase",
+                marginBottom: "0.25rem",
               }}
-              onMouseEnter={(e) =>
-                (e.currentTarget.style.color = "var(--primary)")
-              }
-              onMouseLeave={(e) =>
-                (e.currentTarget.style.color = "var(--primary-light)")
-              }
             >
-              aishi.agarwal.cs@gmail.com →
-            </a>
+              contact card
+            </div>
+            <div>
+              <div
+                style={{
+                  fontSize: "15px",
+                  fontWeight: 600,
+                  color: "var(--text)",
+                  marginBottom: "2px",
+                }}
+              >
+                Aishi Agarwal
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-mono), monospace",
+                  fontSize: "11px",
+                  color: "var(--text-muted)",
+                }}
+              >
+                CS @ Georgia Tech · Class of &apos;28
+              </div>
+            </div>
+            <div
+              style={{
+                height: "1px",
+                background: "var(--border)",
+              }}
+            />
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              {[
+                { label: "email", value: "aishi.agarwal.cs@gmail.com", href: "mailto:aishi.agarwal.cs@gmail.com" },
+                { label: "linkedin", value: "linkedin.com/in/aishi-agarwal", href: "https://www.linkedin.com/in/aishi-agarwal/" },
+                { label: "github", value: "github.com/Aishi25", href: "https://github.com/Aishi25" },
+              ].map(({ label, value, href }) => (
+                <div key={label} style={{ display: "flex", gap: "0.75rem", alignItems: "baseline" }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-mono), monospace",
+                      fontSize: "10px",
+                      color: "var(--text-muted)",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      minWidth: "52px",
+                    }}
+                  >
+                    {label}
+                  </span>
+                  <a
+                    href={href}
+                    target={href.startsWith("mailto") ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    style={{
+                      fontFamily: "var(--font-mono), monospace",
+                      fontSize: "12px",
+                      color: "var(--primary-light)",
+                      textDecoration: "none",
+                      transition: "color 0.15s",
+                    }}
+                    onMouseEnter={(e) =>
+                      (e.currentTarget.style.color = "var(--text)")
+                    }
+                    onMouseLeave={(e) =>
+                      (e.currentTarget.style.color = "var(--primary-light)")
+                    }
+                  >
+                    {value}
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
 
       <style>{`
+        @keyframes traitPop {
+          0% { opacity: 0; transform: translateY(6px) scale(0.95); }
+          100% { opacity: 1; transform: translateY(0) scale(1); }
+        }
+        .trait-pill {
+          opacity: 0;
+          animation: traitPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 1; transform: scale(1); }
+          50% { opacity: 0.5; transform: scale(0.85); }
+        }
         @media (max-width: 700px) {
           .about-grid {
             grid-template-columns: 1fr !important;
