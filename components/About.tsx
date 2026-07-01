@@ -177,7 +177,7 @@ export function About() {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "8px",
-                fontSize: "14px",
+                fontSize: "15px",
                 fontWeight: 500,
                 color: "var(--primary-light)",
                 background: "var(--primary-dim)",
