@@ -1,9 +1,59 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { SectionWrapper, SectionLabel } from "@/components/ui/SectionWrapper";
 
-const TRAITS = ["Tinkerer", "Pathfinder", "Connector"];
+const TRAIT_STRING = "Tinkerer. Pathfinder. Connector.";
+
+function TraitTypewriter() {
+  const [displayed, setDisplayed] = useState("");
+  const [done, setDone] = useState(false);
+
+  useEffect(() => {
+    let i = 0;
+    const interval = setInterval(() => {
+      i++;
+      setDisplayed(TRAIT_STRING.slice(0, i));
+      if (i >= TRAIT_STRING.length) {
+        clearInterval(interval);
+        setDone(true);
+      }
+    }, 55);
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div style={{ marginBottom: "1.75rem" }}>
+      <span
+        style={{
+          fontSize: "clamp(1.25rem, 3vw, 1.75rem)",
+          fontWeight: 700,
+          letterSpacing: "-0.01em",
+          background: "linear-gradient(90deg, var(--primary-light) 0%, var(--primary) 50%, #2a7a8a 100%)",
+          WebkitBackgroundClip: "text",
+          WebkitTextFillColor: "transparent",
+          backgroundClip: "text",
+        }}
+      >
+        {displayed}
+      </span>
+      {!done && (
+        <span
+          style={{
+            display: "inline-block",
+            width: "2px",
+            height: "1.4em",
+            background: "var(--primary-light)",
+            marginLeft: "2px",
+            verticalAlign: "text-bottom",
+            animation: "blink 0.7s step-end infinite",
+          }}
+        />
+      )}
+    </div>
+  );
+}
 
 export function About() {
   return (
@@ -70,35 +120,7 @@ export function About() {
             actually working.&rdquo;
           </p>
 
-          {/* Trait pills with staggered animation */}
-          <div
-            style={{
-              display: "flex",
-              gap: "0.5rem",
-              flexWrap: "wrap",
-              marginBottom: "1.75rem",
-            }}
-          >
-            {TRAITS.map((t, i) => (
-              <span
-                key={t}
-                className="trait-pill"
-                style={{
-                  fontFamily: "var(--font-mono), monospace",
-                  fontSize: "13px",
-                  fontWeight: 600,
-                  color: "var(--primary-light)",
-                  background: "var(--primary-dim)",
-                  border: "1px solid rgba(61,157,174,0.3)",
-                  borderRadius: "var(--radius)",
-                  padding: "5px 16px",
-                  animationDelay: `${i * 0.15}s`,
-                }}
-              >
-                {t}
-              </span>
-            ))}
-          </div>
+          <TraitTypewriter />
 
           <p
             style={{
@@ -223,12 +245,7 @@ export function About() {
                 CS @ Georgia Tech · Class of &apos;28
               </div>
             </div>
-            <div
-              style={{
-                height: "1px",
-                background: "var(--border)",
-              }}
-            />
+            <div style={{ height: "1px", background: "var(--border)" }} />
             <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
               {[
                 { label: "email", value: "aishi.agarwal.cs@gmail.com", href: "mailto:aishi.agarwal.cs@gmail.com" },
@@ -259,12 +276,8 @@ export function About() {
                       textDecoration: "none",
                       transition: "color 0.15s",
                     }}
-                    onMouseEnter={(e) =>
-                      (e.currentTarget.style.color = "var(--text)")
-                    }
-                    onMouseLeave={(e) =>
-                      (e.currentTarget.style.color = "var(--primary-light)")
-                    }
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--primary-light)")}
                   >
                     {value}
                   </a>
@@ -276,13 +289,9 @@ export function About() {
       </div>
 
       <style>{`
-        @keyframes traitPop {
-          0% { opacity: 0; transform: translateY(6px) scale(0.95); }
-          100% { opacity: 1; transform: translateY(0) scale(1); }
-        }
-        .trait-pill {
-          opacity: 0;
-          animation: traitPop 0.4s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+        @keyframes blink {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0; }
         }
         @keyframes pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
