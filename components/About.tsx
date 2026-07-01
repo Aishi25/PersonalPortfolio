@@ -205,18 +205,18 @@ export function About() {
             style={{
               border: "1px solid var(--border)",
               borderRadius: "var(--radius-lg)",
-              padding: "1.25rem 1.5rem",
+              padding: "1.5rem 1.75rem",
               background: "var(--surface)",
               display: "flex",
               flexDirection: "column",
-              gap: "0.75rem",
-              maxWidth: "360px",
+              gap: "0.9rem",
+              maxWidth: "440px",
             }}
           >
             <div
               style={{
                 fontFamily: "var(--font-mono), monospace",
-                fontSize: "10px",
+                fontSize: "12px",
                 letterSpacing: "0.12em",
                 color: "var(--text-muted)",
                 textTransform: "uppercase",
@@ -228,10 +228,10 @@ export function About() {
             <div>
               <div
                 style={{
-                  fontSize: "15px",
+                  fontSize: "17px",
                   fontWeight: 600,
                   color: "var(--text)",
-                  marginBottom: "2px",
+                  marginBottom: "4px",
                 }}
               >
                 Aishi Agarwal
@@ -239,7 +239,7 @@ export function About() {
               <div
                 style={{
                   fontFamily: "var(--font-mono), monospace",
-                  fontSize: "11px",
+                  fontSize: "14px",
                   color: "var(--text-muted)",
                 }}
               >
@@ -257,11 +257,11 @@ export function About() {
                   <span
                     style={{
                       fontFamily: "var(--font-mono), monospace",
-                      fontSize: "10px",
+                      fontSize: "12px",
                       color: "var(--text-muted)",
                       textTransform: "uppercase",
                       letterSpacing: "0.08em",
-                      minWidth: "52px",
+                      minWidth: "64px",
                     }}
                   >
                     {label}
@@ -272,7 +272,7 @@ export function About() {
                     rel="noopener noreferrer"
                     style={{
                       fontFamily: "var(--font-mono), monospace",
-                      fontSize: "12px",
+                      fontSize: "14px",
                       color: "var(--primary-light)",
                       textDecoration: "none",
                       transition: "color 0.15s",
