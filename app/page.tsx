@@ -1,5 +1,6 @@
 import { Nav } from "@/components/Nav";
 import { Hero } from "@/components/Hero";
+import { About } from "@/components/About";
 import { Footer } from "@/components/Footer";
 
 export default function Home() {
@@ -8,7 +9,7 @@ export default function Home() {
       <Nav />
       <main>
         <Hero />
-        {/* Sections coming in Phase 3 */}
+        <About />
       </main>
       <Footer />
     </>
