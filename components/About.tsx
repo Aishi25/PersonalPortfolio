@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { SectionWrapper, SectionLabel } from "@/components/ui/SectionWrapper";
 
 const TRAIT_STRING = "Tinkerer. Pathfinder. Connector.";
@@ -9,8 +9,22 @@ const TRAIT_STRING = "Tinkerer. Pathfinder. Connector.";
 function TraitTypewriter() {
   const [displayed, setDisplayed] = useState("");
   const [done, setDone] = useState(false);
+  const [started, setStarted] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const el = ref.current;
+    if (!el) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => { if (entry.isIntersecting) { setStarted(true); observer.disconnect(); } },
+      { threshold: 0.5 }
+    );
+    observer.observe(el);
+    return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    if (!started) return;
     let i = 0;
     const interval = setInterval(() => {
       i++;
@@ -21,10 +35,10 @@ function TraitTypewriter() {
       }
     }, 55);
     return () => clearInterval(interval);
-  }, []);
+  }, [started]);
 
   return (
-    <div style={{ marginBottom: "1.75rem" }}>
+    <div ref={ref} style={{ marginBottom: "1.75rem" }}>
       <span
         style={{
           fontSize: "clamp(1.25rem, 3vw, 1.75rem)",
