@@ -32,7 +32,7 @@ const PROJECTS = [
   {
     name: "Inbox Agent",
     badge: "personal project · 2026",
-    badgeAccent: false,
+    badgeAccent: true,
     bullets: [
       "Gmail cleanup assistant powered by the Claude API and Google OAuth",
       "Suggests what to unsubscribe from via a React + Node.js interface",
