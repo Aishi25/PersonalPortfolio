@@ -145,13 +145,14 @@ export function Projects() {
               </div>
             </div>
 
-            <ul style={{ margin: "0 0 14px", paddingLeft: "1.25rem", display: "flex", flexDirection: "column", gap: "5px" }}>
+            <div style={{ margin: "0 0 14px", display: "flex", flexDirection: "column", gap: "6px" }}>
               {p.bullets.map((b, i) => (
-                <li key={i} style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.65 }}>
-                  {b}
-                </li>
+                <div key={i} style={{ display: "flex", gap: "10px", alignItems: "baseline" }}>
+                  <span style={{ color: "var(--primary-light)", fontSize: "16px", flexShrink: 0, lineHeight: 1.65 }}>•</span>
+                  <span style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.65 }}>{b}</span>
+                </div>
               ))}
-            </ul>
+            </div>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
               {p.tags.map((t) => (
