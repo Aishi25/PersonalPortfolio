@@ -70,8 +70,8 @@ export function About() {
         }}
         className="about-grid"
       >
-        {/* Headshot */}
-        <div style={{ position: "relative" }}>
+        {/* Headshot + contact card */}
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
           <div
             style={{
               borderRadius: "var(--radius-lg)",
@@ -90,6 +90,93 @@ export function About() {
               sizes="280px"
               priority
             />
+          </div>
+
+          {/* Contact card */}
+          <div
+            style={{
+              border: "1px solid var(--border)",
+              borderRadius: "var(--radius-lg)",
+              padding: "1.25rem 1.5rem",
+              background: "var(--surface)",
+              display: "flex",
+              flexDirection: "column",
+              gap: "0.9rem",
+            }}
+          >
+            <div
+              style={{
+                fontFamily: "var(--font-mono), monospace",
+                fontSize: "12px",
+                letterSpacing: "0.12em",
+                color: "var(--text-muted)",
+                textTransform: "uppercase",
+                marginBottom: "0.25rem",
+              }}
+            >
+              contact card
+            </div>
+            <div>
+              <div
+                style={{
+                  fontSize: "17px",
+                  fontWeight: 600,
+                  color: "var(--text)",
+                  marginBottom: "4px",
+                }}
+              >
+                Aishi Agarwal
+              </div>
+              <div
+                style={{
+                  fontFamily: "var(--font-mono), monospace",
+                  fontSize: "12px",
+                  color: "var(--text-muted)",
+                }}
+              >
+                CS @ Georgia Tech · Class of &apos;28
+              </div>
+            </div>
+            <div style={{ height: "1px", background: "var(--border)" }} />
+            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
+              {[
+                { label: "email", value: "aishi.agarwal.cs@gmail.com", href: "mailto:aishi.agarwal.cs@gmail.com" },
+                { label: "linkedin", value: "aishi-agarwal", href: "https://www.linkedin.com/in/aishi-agarwal/" },
+                { label: "github", value: "Aishi25", href: "https://github.com/Aishi25" },
+              ].map(({ label, value, href }) => (
+                <div key={label} style={{ display: "flex", gap: "0.5rem", alignItems: "baseline", flexWrap: "wrap" }}>
+                  <span
+                    style={{
+                      fontFamily: "var(--font-mono), monospace",
+                      fontSize: "10px",
+                      color: "var(--text-muted)",
+                      textTransform: "uppercase",
+                      letterSpacing: "0.08em",
+                      minWidth: "52px",
+                    }}
+                  >
+                    {label}
+                  </span>
+                  <a
+                    href={href}
+                    target={href.startsWith("mailto") ? undefined : "_blank"}
+                    rel="noopener noreferrer"
+                    style={{
+                      fontFamily: "var(--font-mono), monospace",
+                      fontSize: "12px",
+                      color: "var(--primary-light)",
+                      textDecoration: "none",
+                      transition: "color 0.15s",
+                      wordBreak: "break-all",
+                    }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--primary-light)")}
+                  >
+                    {value}
+                  </a>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 
@@ -200,92 +287,6 @@ export function About() {
             </span>
           </div>
 
-          {/* Contact card */}
-          <div
-            style={{
-              border: "1px solid var(--border)",
-              borderRadius: "var(--radius-lg)",
-              padding: "1.5rem 1.75rem",
-              background: "var(--surface)",
-              display: "flex",
-              flexDirection: "column",
-              gap: "0.9rem",
-              maxWidth: "440px",
-            }}
-          >
-            <div
-              style={{
-                fontFamily: "var(--font-mono), monospace",
-                fontSize: "12px",
-                letterSpacing: "0.12em",
-                color: "var(--text-muted)",
-                textTransform: "uppercase",
-                marginBottom: "0.25rem",
-              }}
-            >
-              contact card
-            </div>
-            <div>
-              <div
-                style={{
-                  fontSize: "17px",
-                  fontWeight: 600,
-                  color: "var(--text)",
-                  marginBottom: "4px",
-                }}
-              >
-                Aishi Agarwal
-              </div>
-              <div
-                style={{
-                  fontFamily: "var(--font-mono), monospace",
-                  fontSize: "14px",
-                  color: "var(--text-muted)",
-                }}
-              >
-                CS @ Georgia Tech · Class of &apos;28
-              </div>
-            </div>
-            <div style={{ height: "1px", background: "var(--border)" }} />
-            <div style={{ display: "flex", flexDirection: "column", gap: "0.5rem" }}>
-              {[
-                { label: "email", value: "aishi.agarwal.cs@gmail.com", href: "mailto:aishi.agarwal.cs@gmail.com" },
-                { label: "linkedin", value: "linkedin.com/in/aishi-agarwal", href: "https://www.linkedin.com/in/aishi-agarwal/" },
-                { label: "github", value: "github.com/Aishi25", href: "https://github.com/Aishi25" },
-              ].map(({ label, value, href }) => (
-                <div key={label} style={{ display: "flex", gap: "0.75rem", alignItems: "baseline" }}>
-                  <span
-                    style={{
-                      fontFamily: "var(--font-mono), monospace",
-                      fontSize: "12px",
-                      color: "var(--text-muted)",
-                      textTransform: "uppercase",
-                      letterSpacing: "0.08em",
-                      minWidth: "64px",
-                    }}
-                  >
-                    {label}
-                  </span>
-                  <a
-                    href={href}
-                    target={href.startsWith("mailto") ? undefined : "_blank"}
-                    rel="noopener noreferrer"
-                    style={{
-                      fontFamily: "var(--font-mono), monospace",
-                      fontSize: "14px",
-                      color: "var(--primary-light)",
-                      textDecoration: "none",
-                      transition: "color 0.15s",
-                    }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--primary-light)")}
-                  >
-                    {value}
-                  </a>
-                </div>
-              ))}
-            </div>
-          </div>
         </div>
       </div>
 
