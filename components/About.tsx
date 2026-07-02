@@ -78,7 +78,7 @@ export function About() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "280px 1fr",
+          gridTemplateColumns: "240px 1fr",
           gap: "4rem",
           alignItems: "start",
         }}
@@ -92,7 +92,7 @@ export function About() {
               overflow: "hidden",
               border: "1px solid var(--border)",
               boxShadow: "0 0 0 4px var(--primary-dim)",
-              aspectRatio: "3/4",
+              aspectRatio: "1/1",
               position: "relative",
             }}
           >
