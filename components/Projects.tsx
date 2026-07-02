@@ -50,7 +50,7 @@ const PROJECTS = [
       "Conducted at UIC's Creative Algorithms Lab under Prof. DasGupta",
       "Co-authored at 17",
     ],
-    tags: ["graph theory", "bioinformatics", "Python"],
+    tags: ["graph theory", "bioinformatics"],
     demo: "http://bit.ly/HypergraphPaper",
     github: null,
   },
