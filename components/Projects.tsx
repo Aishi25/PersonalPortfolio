@@ -9,7 +9,7 @@ const PROJECTS = [
     badgeAccent: true,
     description: "AI drug analyzer — flags dangerous interactions across 11.5M+ FAERS records",
     tags: ["Python", "NLP", "FastAPI"],
-    demo: null,
+    demo: "https://bit.ly/RxGuard",
     github: "https://github.com/gt12889/hacklytics2026",
   },
   {
@@ -18,7 +18,7 @@ const PROJECTS = [
     badgeAccent: false,
     description: "OCR + NLP medical bill analyzer — breaks down confusing hospital bills into plain English",
     tags: ["OCR", "NLP", "Python"],
-    demo: null,
+    demo: "https://bit.ly/BillBuddy25",
     github: "https://github.com/Aishi25/BillBuddyPrivate",
   },
   {
@@ -45,7 +45,7 @@ const PROJECTS = [
     badgeAccent: true,
     description: "Hypergraph curvature in drug-target interactions — co-authored at 17",
     tags: ["graph theory", "bioinformatics"],
-    demo: null,
+    demo: "http://bit.ly/HypergraphPaper",
     github: null,
   },
 ];
