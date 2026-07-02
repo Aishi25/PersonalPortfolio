@@ -74,7 +74,7 @@ const PROJECTS = [
       "Medical bill analyzer using OCR and NLP to parse hospital bills and flag billing errors",
       "Translates confusing line items into plain English so patients understand what they're charged for",
     ],
-    tags: ["OCR", "NLP", "React"],
+    tags: ["OCR", "NLP", "React", "Supabase"],
     demo: "https://bit.ly/BillBuddy25",
     github: "https://github.com/Aishi25/BillBuddyPrivate",
   },
