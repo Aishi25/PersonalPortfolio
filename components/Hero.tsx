@@ -8,6 +8,7 @@ const RESPONSE_LINES = [
   { text: "Aishi Agarwal", type: "name" },
   { text: "Computer Science @ Georgia Tech · Intelligence (AI/ML) + Devices · GPA 4.0/4.0 · Class of '28", type: "meta" },
   { text: "---", type: "divider" },
+  { text: "Key Achievements:", type: "label" },
   { text: "→ AI/ML Intern @ Aeroseal — building public-facing AI chatbot", type: "bullet" },
   { text: "→ RxGuard — AI drug analyzer, 11.5M+ FAERS records · 2nd place Hacklytics 2026", type: "bullet" },
   { text: "→ GT Big Data Big Impact — LSTM economic forecasting + Gemini-powered club chatbot", type: "bullet" },
@@ -110,6 +111,14 @@ export function Hero() {
       fontSize: "14px",
       color: "var(--border-strong)",
       margin: "0.6rem 0",
+    },
+    label: {
+      fontFamily: "var(--font-mono), monospace",
+      fontSize: "12px",
+      color: "var(--text-muted)",
+      letterSpacing: "0.1em",
+      textTransform: "uppercase" as const,
+      marginBottom: "0.25rem",
     },
     bullet: {
       fontFamily: "var(--font-mono), monospace",
@@ -324,7 +333,7 @@ export function Hero() {
               textAlign: "center",
               marginTop: "2.5rem",
               fontFamily: "var(--font-mono), monospace",
-              fontSize: "11px",
+              fontSize: "14px",
               color: "var(--text-muted)",
               letterSpacing: "0.1em",
             }}

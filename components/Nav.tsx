@@ -60,7 +60,7 @@ export function Nav() {
             key={l.label}
             href={l.href}
             style={{
-              fontSize: "13px",
+              fontSize: "15px",
               color: "var(--text-secondary)",
               textDecoration: "none",
               transition: "color 0.15s",

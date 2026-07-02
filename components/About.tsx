@@ -132,9 +132,10 @@ export function About() {
                   fontFamily: "var(--font-mono), monospace",
                   fontSize: "12px",
                   color: "var(--text-muted)",
+                  whiteSpace: "nowrap",
                 }}
               >
-                CS @ Georgia Tech · Class&nbsp;of&nbsp;&apos;28
+                CS @ Georgia Tech · Class of &apos;28
               </div>
             </div>
             <div style={{ height: "1px", background: "var(--border)" }} />
