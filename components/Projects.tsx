@@ -30,8 +30,8 @@ const PROJECTS = [
     github: "https://github.com/gt12889/hacklytics2026",
   },
   {
-    name: "Inbox Agent",
-    badge: "personal project · 2026",
+    name: "Inbox Cleanup Agent",
+    badge: "Personal Project · 2026",
     badgeAccent: true,
     bullets: [
       "Gmail cleanup assistant powered by the Claude API and Google OAuth",
@@ -43,7 +43,7 @@ const PROJECTS = [
   },
   {
     name: "Springer Paper",
-    badge: "published · 2026",
+    badge: "Published · 2026",
     badgeAccent: true,
     bullets: [
       "Co-authored bioinformatics research published by Springer, modeled drug-target interaction using hypergraph curvature",
@@ -56,7 +56,7 @@ const PROJECTS = [
   },
   {
     name: "TerraTrends",
-    badge: "BDBI · ML research · 2026",
+    badge: "Club ML Research · 2026",
     badgeAccent: true,
     bullets: [
       "LSTM time series model forecasting county-level economic growth across Georgia",
