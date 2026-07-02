@@ -127,7 +127,7 @@ export function Projects() {
                     onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "var(--primary-light)")}
                   >
-                    ↗ {p.name === "Springer Paper" ? "read paper" : p.name === "Aeroseal Chatbot" ? "live demo" : "demo"}
+                    ↗ {p.name === "Springer Paper" ? "read paper" : p.name === "Aeroseal Chatbot" ? "visit site" : "demo"}
                   </a>
                 )}
                 {p.github && (
