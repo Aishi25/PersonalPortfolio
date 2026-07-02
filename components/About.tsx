@@ -85,7 +85,7 @@ export function About() {
         className="about-grid"
       >
         {/* Headshot + contact card */}
-        <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+        <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem" }}>
           <div
             style={{
               borderRadius: "var(--radius-lg)",
