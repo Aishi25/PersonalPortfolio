@@ -5,11 +5,15 @@ import { SectionWrapper, SectionLabel, SectionHeading } from "@/components/ui/Se
 const PROJECTS = [
   {
     name: "Aeroseal Chatbot",
-    badge: "AI/ML Intern · 2025",
+    badge: "AI/ML Intern · 2026",
     badgeAccent: false,
-    description:
-      "Redesigned conversational flow for Aeroseal's public-facing AI chatbot — built session management into the SQL backend, engineered per-intent follow-up rules, and tuned the system prompt to eliminate hallucinations. Also diagnosed and fixed a vector store ingestion pipeline bug that left stale, searchable copies when webpages updated.",
-    tags: ["LLM", "RAG", "SQL", "Python"],
+    bullets: [
+      "Redesigned conversational flow — built session management into SQL backend with per-intent follow-up rules",
+      "Tuned system prompt to eliminate hallucinations about leadership team and formatting issues",
+      "Fixed vector store ingestion pipeline bug leaving stale, searchable copies when webpages updated",
+      "Deployed to production; presented improvements to engineering leadership",
+    ],
+    tags: ["LLM", "RAG", "SQL", "C#"],
     demo: "https://chat.aeroseal.com",
     github: null,
   },
@@ -17,51 +21,65 @@ const PROJECTS = [
     name: "RxGuard",
     badge: "2nd place · Hacklytics 2026",
     badgeAccent: true,
-    description:
-      "AI drug interaction analyzer built at Hacklytics 2026 — ingests 11.5M+ FAERS adverse event reports and uses 384-dim vector embeddings for semantic search to surface dangerous medication combinations. Won 2nd place for Actian AI Vector DB track.",
+    bullets: [
+      "AI drug interaction analyzer ingesting 11.5M+ FAERS adverse event reports",
+      "384-dim vector embeddings for semantic search — surfaces dangerous medication combinations",
+      "Won 2nd place for Actian AI Vector DB track at Hacklytics 2026",
+    ],
     tags: ["Python", "NLP", "FastAPI", "React"],
     demo: "https://bit.ly/RxGuard",
     github: "https://github.com/gt12889/hacklytics2026",
   },
   {
-    name: "BillBuddy",
-    badge: "AI ATL 2025",
-    badgeAccent: false,
-    description:
-      "Medical bill analyzer from AI ATL 2025 — uses OCR and NLP to parse hospital bills, flag potential billing errors, and translate confusing line items into plain English so patients actually understand what they're being charged for.",
-    tags: ["OCR", "NLP", "React", "JavaScript"],
-    demo: "https://bit.ly/BillBuddy25",
-    github: "https://github.com/Aishi25/BillBuddyPrivate",
-  },
-  {
     name: "Inbox Agent",
-    badge: "personal project",
+    badge: "personal project · 2026",
     badgeAccent: false,
-    description:
-      "Gmail cleanup assistant powered by the Claude API and Google OAuth — analyzes inbox patterns, categorizes emails by priority, and suggests what to archive or unsubscribe from. Built with a React frontend and Node.js backend.",
+    bullets: [
+      "Gmail cleanup assistant powered by the Claude API and Google OAuth",
+      "Analyzes inbox patterns and categorizes emails by priority",
+      "Suggests what to archive or unsubscribe from via a React + Node.js interface",
+    ],
     tags: ["React", "Claude API", "Node.js", "OAuth"],
-    demo: null,
+    demo: "https://inbox-cleaning-agent.onrender.com/",
     github: "https://github.com/Aishi25/Inbox_Cleaning_Agent",
-  },
-  {
-    name: "TerraTrends",
-    badge: "BDBI · ML research",
-    badgeAccent: false,
-    description:
-      "LSTM time series model forecasting county-level economic growth across Georgia, built under GT's Big Data Big Impact club. Trained on multi-source panel data using 10-year sliding windows to generate 3-year sector-level forecasts.",
-    tags: ["PyTorch", "LSTM", "pandas", "Python"],
-    demo: null,
-    github: "https://github.com/Aishi25/TerraTrends",
   },
   {
     name: "Springer Paper",
     badge: "published · 2026",
     badgeAccent: true,
-    description:
-      "Co-authored bioinformatics research paper published by Springer — modeled drug-target interaction success using hypergraph Ricci curvature methods. Conducted at UIC's Creative Algorithms Lab under Prof. DasGupta. Co-authored at 17.",
+    bullets: [
+      "Co-authored bioinformatics research published by Springer — modeled drug-target interaction success using hypergraph Ricci curvature",
+      "Conducted at UIC's Creative Algorithms Lab under Prof. DasGupta",
+      "Co-authored at 17",
+    ],
     tags: ["graph theory", "bioinformatics", "Python"],
     demo: "http://bit.ly/HypergraphPaper",
     github: null,
+  },
+  {
+    name: "TerraTrends",
+    badge: "BDBI · ML research",
+    badgeAccent: false,
+    bullets: [
+      "LSTM time series model forecasting county-level economic growth across Georgia",
+      "Trained on multi-source panel data using 10-year sliding windows → 3-year sector-level forecasts",
+      "Built under GT's Big Data Big Impact club focused on AI for social good",
+    ],
+    tags: ["PyTorch", "LSTM", "pandas", "Python"],
+    demo: null,
+    github: "https://github.com/Aishi25/TerraTrends",
+  },
+  {
+    name: "BillBuddy",
+    badge: "AI ATL 2025",
+    badgeAccent: false,
+    bullets: [
+      "Medical bill analyzer using OCR and NLP to parse hospital bills and flag billing errors",
+      "Translates confusing line items into plain English so patients understand what they're charged for",
+    ],
+    tags: ["OCR", "NLP", "React", "JavaScript"],
+    demo: "https://bit.ly/BillBuddy25",
+    github: "https://github.com/Aishi25/BillBuddyPrivate",
   },
 ];
 
@@ -130,9 +148,13 @@ export function Projects() {
               </div>
             </div>
 
-            <p style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.7, margin: "0 0 12px" }}>
-              {p.description}
-            </p>
+            <ul style={{ margin: "0 0 12px", paddingLeft: "1.1rem", display: "flex", flexDirection: "column", gap: "4px" }}>
+              {p.bullets.map((b, i) => (
+                <li key={i} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.65 }}>
+                  {b}
+                </li>
+              ))}
+            </ul>
 
             <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
               {p.tags.map((t) => (
