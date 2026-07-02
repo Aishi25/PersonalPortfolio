@@ -46,9 +46,8 @@ const PROJECTS = [
     badge: "Published · 2026",
     badgeAccent: true,
     bullets: [
-      "Co-authored bioinformatics research published by Springer, modeled drug-target interaction using hypergraph curvature",
-      "Conducted at UIC's Creative Algorithms Lab under Prof. DasGupta",
-      "Co-authored at 17",
+      "Co-authored Springer-published bioinformatics research on hypergraph curvature in drug-target interactions",
+      "Conducted at UIC's Creative Algorithms Lab under Prof. DasGupta at age 17",
     ],
     tags: ["graph theory", "bioinformatics"],
     demo: "http://bit.ly/HypergraphPaper",
