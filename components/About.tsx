@@ -100,7 +100,7 @@ export function About() {
               src="/images/headshot.png"
               alt="Aishi Agarwal"
               fill
-              style={{ objectFit: "cover", objectPosition: "center top" }}
+              style={{ objectFit: "contain", objectPosition: "center top" }}
               sizes="280px"
               priority
             />
