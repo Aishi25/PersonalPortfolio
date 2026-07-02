@@ -8,7 +8,8 @@ const PROJECTS = [
     badge: "AI/ML Intern · 2026",
     badgeAccent: true,
     bullets: [
-      "Redesigned conversational flow, built session management into SQL backend with per-intent follow-up rules",
+      "Redesigned conversational flow through iterative system prompt tuning for structured intent handling",
+      "Built session-based conversation tracking into the SQL backend",
       "Tuned system prompt to eliminate hallucinations about the leadership team and formatting issues",
       "Fixed a vector store ingestion pipeline bug leaving stale, searchable copies when webpages updated",
     ],
