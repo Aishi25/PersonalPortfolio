@@ -67,7 +67,7 @@ export function Hero() {
     const t = setInterval(() => {
       count++;
       setThinkingDots(".".repeat((count % 3) + 1));
-      if (count >= 7) {
+      if (count >= 5) {
         clearInterval(t);
         setPhase("streaming");
       }
