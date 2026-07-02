@@ -5,48 +5,48 @@ import { SectionWrapper, SectionLabel, SectionHeading } from "@/components/ui/Se
 const PROJECTS = [
   {
     slug: "RxGuard/",
-    name: "RxGuard",
     badge: "2nd place · Hacklytics 2026",
     badgeAccent: true,
     description: "AI drug analyzer — flags dangerous interactions across 11.5M+ FAERS records",
     tags: ["Python", "NLP", "FastAPI"],
-    href: "https://github.com/Aishi25",
+    demo: null,
+    github: "https://github.com/gt12889/hacklytics2026",
   },
   {
     slug: "BillBuddy/",
-    name: "BillBuddy",
     badge: "AI ATL 2025",
     badgeAccent: false,
     description: "OCR + NLP medical bill analyzer — breaks down confusing hospital bills into plain English",
     tags: ["OCR", "NLP", "Python"],
-    href: null,
+    demo: null,
+    github: "https://github.com/Aishi25/BillBuddyPrivate",
   },
   {
     slug: "inbox-agent/",
-    name: "Inbox Cleaning Agent",
     badge: "personal project",
     badgeAccent: false,
     description: "Gmail cleanup assistant — Claude API + Google OAuth, suggests what to archive or unsubscribe",
     tags: ["React", "Claude API", "Node.js"],
-    href: "https://github.com/Aishi25/Inbox_Cleaning_Agent",
+    demo: null,
+    github: "https://github.com/Aishi25/Inbox_Cleaning_Agent",
   },
   {
     slug: "terra-trends/",
-    name: "Terra Trends",
     badge: "BDBI · ML research",
     badgeAccent: false,
     description: "LSTM model forecasting county-level economic growth across Georgia — multi-source panel data",
     tags: ["PyTorch", "LSTM", "pandas"],
-    href: null,
+    demo: null,
+    github: "https://github.com/Aishi25/TerraTrends",
   },
   {
     slug: "springer-paper/",
-    name: "Springer Paper",
     badge: "published · 2026",
     badgeAccent: true,
     description: "Hypergraph curvature in drug-target interactions — co-authored at 17",
     tags: ["graph theory", "bioinformatics"],
-    href: null,
+    demo: null,
+    github: null,
   },
 ];
 
@@ -105,22 +105,13 @@ export function Projects() {
                   border: "1px solid var(--border)",
                   borderRadius: "var(--radius)",
                   padding: "1rem 1.25rem",
-                  cursor: p.href ? "pointer" : "default",
+                  cursor: "default",
                   transition: "border-color 0.15s",
                 }}
                 onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--primary)")}
                 onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
-                onClick={() => p.href && window.open(p.href, "_blank")}
               >
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "baseline",
-                    gap: "0.75rem",
-                    marginBottom: "6px",
-                    flexWrap: "wrap",
-                  }}
-                >
+                <div style={{ display: "flex", alignItems: "baseline", gap: "0.75rem", marginBottom: "6px", flexWrap: "wrap" }}>
                   <span style={{ color: "var(--primary-light)", fontWeight: 600 }}>→ {p.slug}</span>
                   <span
                     style={{
@@ -134,31 +125,42 @@ export function Projects() {
                   >
                     {p.badge}
                   </span>
-                  {p.href && (
-                    <span style={{ marginLeft: "auto", color: "var(--text-muted)", fontSize: "12px" }}>
-                      ↗ view
-                    </span>
-                  )}
                 </div>
-                <div style={{ color: "var(--text-secondary)", fontSize: "12px", marginBottom: "8px" }}>
+                <div style={{ color: "var(--text-secondary)", fontSize: "12px", marginBottom: "10px" }}>
                   {p.description}
                 </div>
-                <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
-                  {p.tags.map((t) => (
-                    <span
-                      key={t}
-                      style={{
-                        fontSize: "10px",
-                        color: "var(--primary-light)",
-                        background: "var(--primary-dim)",
-                        border: "1px solid rgba(61,157,174,0.2)",
-                        borderRadius: "4px",
-                        padding: "2px 8px",
-                      }}
-                    >
-                      {t}
-                    </span>
-                  ))}
+                <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "8px" }}>
+                  <div style={{ display: "flex", gap: "6px", flexWrap: "wrap" }}>
+                    {p.tags.map((t) => (
+                      <span
+                        key={t}
+                        style={{
+                          fontSize: "10px",
+                          color: "var(--primary-light)",
+                          background: "var(--primary-dim)",
+                          border: "1px solid rgba(61,157,174,0.2)",
+                          borderRadius: "4px",
+                          padding: "2px 8px",
+                        }}
+                      >
+                        {t}
+                      </span>
+                    ))}
+                  </div>
+                  <div style={{ display: "flex", gap: "0.75rem" }}>
+                    {p.demo && (
+                      <a href={p.demo} target="_blank" rel="noopener noreferrer"
+                        style={{ fontSize: "12px", color: "var(--primary-light)", textDecoration: "none" }}
+                      >↗ demo</a>
+                    )}
+                    {p.github && (
+                      <a href={p.github} target="_blank" rel="noopener noreferrer"
+                        style={{ fontSize: "12px", color: "var(--text-muted)", textDecoration: "none" }}
+                        onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
+                        onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
+                      >↗ github</a>
+                    )}
+                  </div>
                 </div>
               </div>
             ))}
