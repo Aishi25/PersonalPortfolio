@@ -10,7 +10,6 @@ const PROJECTS = [
     bullets: [
       "Redesigned conversational flow through iterative system prompt tuning for structured intent handling",
       "Built session-based conversation tracking into the SQL backend",
-      "Tuned system prompt to eliminate hallucinations about the leadership team and formatting issues",
       "Fixed a vector store ingestion pipeline bug leaving stale, searchable copies when webpages updated",
     ],
     tags: ["OpenAI API", "RAG", "SQL", "Azure"],
