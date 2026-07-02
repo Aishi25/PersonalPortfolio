@@ -56,8 +56,8 @@ const PROJECTS = [
   },
   {
     name: "TerraTrends",
-    badge: "BDBI · ML research",
-    badgeAccent: false,
+    badge: "BDBI · ML research · 2026",
+    badgeAccent: true,
     bullets: [
       "LSTM time series model forecasting county-level economic growth across Georgia",
       "Trained on multi-source panel data using 10-year sliding windows, producing 3-year sector-level forecasts",
