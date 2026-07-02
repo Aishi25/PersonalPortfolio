@@ -92,7 +92,7 @@ export function About() {
               overflow: "hidden",
               border: "1px solid var(--border)",
               boxShadow: "0 0 0 4px var(--primary-dim)",
-              aspectRatio: "5/6",
+              aspectRatio: "3938/4605",
               position: "relative",
             }}
           >
