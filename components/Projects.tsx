@@ -12,7 +12,7 @@ const PROJECTS = [
       "Tuned system prompt to eliminate hallucinations about the leadership team and formatting issues",
       "Fixed a vector store ingestion pipeline bug leaving stale, searchable copies when webpages updated",
     ],
-    tags: ["LLM", "RAG", "SQL", "C#", "Azure"],
+    tags: ["OpenAI API", "RAG", "SQL", "C#", "Azure"],
     demo: "https://chat.aeroseal.com",
     github: null,
   },
