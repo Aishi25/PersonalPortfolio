@@ -78,7 +78,7 @@ export function About() {
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "240px 1fr",
+          gridTemplateColumns: "280px 1fr",
           gap: "4rem",
           alignItems: "start",
         }}
@@ -92,7 +92,7 @@ export function About() {
               overflow: "hidden",
               border: "1px solid var(--border)",
               boxShadow: "0 0 0 4px var(--primary-dim)",
-              aspectRatio: "1/1",
+              aspectRatio: "3/4",
               position: "relative",
             }}
           >
@@ -100,7 +100,7 @@ export function About() {
               src="/images/headshot.png"
               alt="Aishi Agarwal"
               fill
-              style={{ objectFit: "contain", objectPosition: "center top" }}
+              style={{ objectFit: "cover", objectPosition: "center top" }}
               sizes="280px"
               priority
             />
