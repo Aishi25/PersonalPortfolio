@@ -56,7 +56,7 @@ const PROJECTS = [
   },
   {
     name: "TerraTrends",
-    badge: "Club ML Research · 2026",
+    badge: "Club · ML Research · 2026",
     badgeAccent: true,
     bullets: [
       "LSTM time series model forecasting county-level economic growth across Georgia",
