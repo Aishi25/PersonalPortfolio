@@ -62,7 +62,7 @@ const PROJECTS = [
       "LSTM time series model forecasting county-level economic growth across Georgia",
       "Trained on multi-source panel data using 10-year sliding windows, producing 3-year sector-level forecasts",
     ],
-    tags: ["PyTorch", "LSTM", "pandas", "Python"],
+    tags: ["LSTM", "pandas", "Python"],
     demo: null,
     github: "https://github.com/Aishi25/TerraTrends",
   },
