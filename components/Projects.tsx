@@ -13,12 +13,12 @@ const PROJECTS = [
     href: "https://github.com/Aishi25",
   },
   {
-    slug: "aeroseal-chatbot/",
-    name: "Aeroseal Chatbot",
-    badge: "internship · deployed",
+    slug: "BillBuddy/",
+    name: "BillBuddy",
+    badge: "AI ATL 2025",
     badgeAccent: false,
-    description: "Public-facing AI chatbot built at Aeroseal — LLM + RAG pipeline for customer support",
-    tags: ["LLM", "RAG", "prompt engineering"],
+    description: "OCR + NLP medical bill analyzer — breaks down confusing hospital bills into plain English",
+    tags: ["OCR", "NLP", "Python"],
     href: null,
   },
   {
