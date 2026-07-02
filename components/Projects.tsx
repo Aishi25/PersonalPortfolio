@@ -8,10 +8,10 @@ const PROJECTS = [
     badge: "AI/ML Intern · 2026",
     badgeAccent: false,
     bullets: [
-      "Redesigned conversational flow — built session management into SQL backend with per-intent follow-up rules",
-      "Tuned system prompt to eliminate hallucinations about leadership team and formatting issues",
-      "Fixed vector store ingestion pipeline bug leaving stale, searchable copies when webpages updated",
-      "Deployed to production; presented improvements to engineering leadership",
+      "Redesigned conversational flow, built session management into SQL backend with per-intent follow-up rules",
+      "Tuned system prompt to eliminate hallucinations about the leadership team and formatting issues",
+      "Fixed a vector store ingestion pipeline bug leaving stale, searchable copies when webpages updated",
+      "Deployed to production, presented improvements to engineering leadership",
     ],
     tags: ["LLM", "RAG", "SQL", "C#"],
     demo: "https://chat.aeroseal.com",
@@ -23,7 +23,7 @@ const PROJECTS = [
     badgeAccent: true,
     bullets: [
       "AI drug interaction analyzer ingesting 11.5M+ FAERS adverse event reports",
-      "384-dim vector embeddings for semantic search — surfaces dangerous medication combinations",
+      "384-dim vector embeddings for semantic search, surfaces dangerous medication combinations",
       "Won 2nd place for Actian AI Vector DB track at Hacklytics 2026",
     ],
     tags: ["Python", "NLP", "FastAPI", "React"],
@@ -37,7 +37,7 @@ const PROJECTS = [
     bullets: [
       "Gmail cleanup assistant powered by the Claude API and Google OAuth",
       "Analyzes inbox patterns and categorizes emails by priority",
-      "Suggests what to archive or unsubscribe from via a React + Node.js interface",
+      "Suggests what to archive or unsubscribe from via a React and Node.js interface",
     ],
     tags: ["React", "Claude API", "Node.js", "OAuth"],
     demo: "https://inbox-cleaning-agent.onrender.com/",
@@ -48,7 +48,7 @@ const PROJECTS = [
     badge: "published · 2026",
     badgeAccent: true,
     bullets: [
-      "Co-authored bioinformatics research published by Springer — modeled drug-target interaction success using hypergraph Ricci curvature",
+      "Co-authored bioinformatics research published by Springer, modeled drug-target interaction success using hypergraph Ricci curvature",
       "Conducted at UIC's Creative Algorithms Lab under Prof. DasGupta",
       "Co-authored at 17",
     ],
@@ -62,7 +62,7 @@ const PROJECTS = [
     badgeAccent: false,
     bullets: [
       "LSTM time series model forecasting county-level economic growth across Georgia",
-      "Trained on multi-source panel data using 10-year sliding windows → 3-year sector-level forecasts",
+      "Trained on multi-source panel data using 10-year sliding windows, producing 3-year sector-level forecasts",
       "Built under GT's Big Data Big Impact club focused on AI for social good",
     ],
     tags: ["PyTorch", "LSTM", "pandas", "Python"],
@@ -97,19 +97,19 @@ export function Projects() {
               background: "var(--surface)",
               border: "1px solid var(--border)",
               borderRadius: "var(--radius-lg)",
-              padding: "1.25rem 1.5rem",
+              padding: "1.5rem 1.75rem",
               transition: "border-color 0.15s",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--primary)")}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
           >
-            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem", marginBottom: "8px", flexWrap: "wrap" }}>
+            <div style={{ display: "flex", alignItems: "flex-start", justifyContent: "space-between", gap: "1rem", marginBottom: "10px", flexWrap: "wrap" }}>
               <div style={{ display: "flex", alignItems: "center", gap: "0.75rem", flexWrap: "wrap" }}>
-                <span style={{ fontSize: "15px", fontWeight: 600, color: "var(--text)" }}>{p.name}</span>
+                <span style={{ fontSize: "17px", fontWeight: 600, color: "var(--text)" }}>{p.name}</span>
                 <span
                   style={{
-                    fontSize: "11px",
-                    padding: "3px 8px",
+                    fontSize: "12px",
+                    padding: "3px 10px",
                     borderRadius: "4px",
                     whiteSpace: "nowrap",
                     background: p.badgeAccent ? "rgba(249,115,22,0.12)" : "var(--primary-dim)",
@@ -120,7 +120,7 @@ export function Projects() {
                   {p.badge}
                 </span>
               </div>
-              <div style={{ display: "flex", gap: "12px", flexShrink: 0 }}>
+              <div style={{ display: "flex", gap: "14px", flexShrink: 0 }}>
                 {p.demo && (
                   <a
                     href={p.demo}
@@ -148,9 +148,9 @@ export function Projects() {
               </div>
             </div>
 
-            <ul style={{ margin: "0 0 12px", paddingLeft: "1.1rem", display: "flex", flexDirection: "column", gap: "4px" }}>
+            <ul style={{ margin: "0 0 14px", paddingLeft: "1.25rem", display: "flex", flexDirection: "column", gap: "5px" }}>
               {p.bullets.map((b, i) => (
-                <li key={i} style={{ fontSize: "13px", color: "var(--text-secondary)", lineHeight: 1.65 }}>
+                <li key={i} style={{ fontSize: "15px", color: "var(--text-secondary)", lineHeight: 1.65 }}>
                   {b}
                 </li>
               ))}
@@ -161,12 +161,12 @@ export function Projects() {
                 <span
                   key={t}
                   style={{
-                    fontSize: "11px",
+                    fontSize: "12px",
                     color: "var(--primary-light)",
                     background: "var(--primary-dim)",
                     border: "1px solid rgba(61,157,174,0.2)",
                     borderRadius: "4px",
-                    padding: "2px 8px",
+                    padding: "3px 10px",
                   }}
                 >
                   {t}
