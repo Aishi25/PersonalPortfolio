@@ -126,7 +126,7 @@ export function Projects() {
                     href={p.demo}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ fontSize: "12px", color: "var(--primary-light)", textDecoration: "none" }}
+                    style={{ fontSize: "14px", color: "var(--primary-light)", textDecoration: "none", fontWeight: 500 }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "var(--primary-light)")}
                   >
@@ -138,9 +138,9 @@ export function Projects() {
                     href={p.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ fontSize: "12px", color: "var(--text-muted)", textDecoration: "none" }}
-                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-muted)")}
+                    style={{ fontSize: "14px", color: "var(--text-secondary)", textDecoration: "none", fontWeight: 500 }}
+                    onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
                   >
                     ↗ github
                   </a>
