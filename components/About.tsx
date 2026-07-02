@@ -219,7 +219,7 @@ export function About() {
             }}
           >
             I love integrating creativity into software, whether that&apos;s
-            building AI-powered applications, optimizing LLM prompts, or
+            building AI-powered applications, prompt engineering, or
             wrangling messy datasets. Along the way I&apos;ve contributed to
             published research, shipped software for companies, and placed at
             hackathons.
