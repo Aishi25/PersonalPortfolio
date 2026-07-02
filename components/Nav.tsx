@@ -79,9 +79,9 @@ export function Nav() {
           style={{
             background: "var(--primary)",
             color: "#fff",
-            fontSize: "12px",
+            fontSize: "15px",
             fontWeight: 500,
-            padding: "6px 14px",
+            padding: "7px 16px",
             borderRadius: "var(--radius)",
             textDecoration: "none",
             transition: "opacity 0.15s",
