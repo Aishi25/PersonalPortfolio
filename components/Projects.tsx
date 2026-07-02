@@ -6,12 +6,11 @@ const PROJECTS = [
   {
     name: "Aeroseal Chatbot",
     badge: "AI/ML Intern · 2026",
-    badgeAccent: false,
+    badgeAccent: true,
     bullets: [
       "Redesigned conversational flow, built session management into SQL backend with per-intent follow-up rules",
       "Tuned system prompt to eliminate hallucinations about the leadership team and formatting issues",
       "Fixed a vector store ingestion pipeline bug leaving stale, searchable copies when webpages updated",
-      "Deployed to production, presented improvements to engineering leadership",
     ],
     tags: ["LLM", "RAG", "SQL", "C#"],
     demo: "https://chat.aeroseal.com",
@@ -36,8 +35,7 @@ const PROJECTS = [
     badgeAccent: false,
     bullets: [
       "Gmail cleanup assistant powered by the Claude API and Google OAuth",
-      "Analyzes inbox patterns and categorizes emails by priority",
-      "Suggests what to archive or unsubscribe from via a React and Node.js interface",
+      "Suggests what to unsubscribe from via a React + Node.js interface",
     ],
     tags: ["React", "Claude API", "Node.js", "OAuth"],
     demo: "https://inbox-cleaning-agent.onrender.com/",
@@ -48,7 +46,7 @@ const PROJECTS = [
     badge: "published · 2026",
     badgeAccent: true,
     bullets: [
-      "Co-authored bioinformatics research published by Springer, modeled drug-target interaction success using hypergraph Ricci curvature",
+      "Co-authored bioinformatics research published by Springer, modeled drug-target interaction using hypergraph curvature",
       "Conducted at UIC's Creative Algorithms Lab under Prof. DasGupta",
       "Co-authored at 17",
     ],
@@ -63,7 +61,6 @@ const PROJECTS = [
     bullets: [
       "LSTM time series model forecasting county-level economic growth across Georgia",
       "Trained on multi-source panel data using 10-year sliding windows, producing 3-year sector-level forecasts",
-      "Built under GT's Big Data Big Impact club focused on AI for social good",
     ],
     tags: ["PyTorch", "LSTM", "pandas", "Python"],
     demo: null,
