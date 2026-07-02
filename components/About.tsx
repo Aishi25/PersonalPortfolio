@@ -234,8 +234,10 @@ export function About() {
             }}
           >
             I love integrating creativity into software, whether that&apos;s
-            building AI-powered applications, prompt engineering, or
-            wrangling messy datasets. Along the way I&apos;ve contributed to
+            building <span style={{ color: "var(--text)" }}>AI-powered applications</span>,{" "}
+            <span style={{ color: "var(--text)" }}>prompt engineering</span>, or
+            extracting insights from{" "}
+            <span style={{ color: "var(--text)" }}>large-scale datasets</span>. Along the way I&apos;ve contributed to
             published research, shipped software for companies, and placed at
             hackathons.
           </p>
