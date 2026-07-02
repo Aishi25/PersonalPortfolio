@@ -58,7 +58,7 @@ function TraitTypewriter() {
 
 export function About() {
   return (
-    <SectionWrapper id="about">
+    <SectionWrapper id="about" style={{ paddingTop: "3rem" }}>
       <SectionLabel>about</SectionLabel>
 
       <div
@@ -134,7 +134,7 @@ export function About() {
                   color: "var(--text-muted)",
                 }}
               >
-                CS @ Georgia Tech · Class of &apos;28
+                CS @ Georgia Tech · Class&nbsp;of&nbsp;&apos;28
               </div>
             </div>
             <div style={{ height: "1px", background: "var(--border)" }} />
