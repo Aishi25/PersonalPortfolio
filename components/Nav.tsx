@@ -4,9 +4,9 @@ import { useTheme } from "next-themes";
 import { useEffect, useState } from "react";
 
 const links = [
-  { label: "About", href: "#about" },
-  { label: "Projects", href: "#projects" },
-  { label: "Experience", href: "#experience" },
+  { label: "About", href: "/#about" },
+  { label: "Projects", href: "/#projects" },
+  { label: "Experience", href: "/#experience" },
 ];
 
 export function Nav() {
@@ -40,7 +40,7 @@ export function Nav() {
       }}
     >
       <a
-        href="#"
+        href="/"
         style={{
           fontFamily: "var(--font-mono), monospace",
           fontSize: "13px",

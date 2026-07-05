@@ -1,85 +1,13 @@
 "use client";
 
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 import { SectionWrapper, SectionLabel, SectionHeading } from "@/components/ui/SectionWrapper";
-
-const PROJECTS = [
-  {
-    name: "Aeroseal Chatbot",
-    badge: "AI/ML Intern · 2026",
-    badgeAccent: true,
-    bullets: [
-      "Redesigned conversational flow through iterative system prompt tuning for structured intent handling",
-      "Built session-based conversation tracking into the SQL backend",
-      "Fixed a vector store ingestion pipeline bug leaving stale, searchable copies when webpages updated",
-    ],
-    tags: ["OpenAI API", "RAG", "SQL", "Azure"],
-    demo: "https://chat.aeroseal.com",
-    github: null,
-  },
-  {
-    name: "RxGuard",
-    badge: "2nd place · Hacklytics 2026",
-    badgeAccent: true,
-    bullets: [
-      "AI drug interaction analyzer ingesting 11.5M+ FAERS adverse event reports",
-      "384-dim vector embeddings for semantic search, surfaces dangerous medication combinations",
-      "Won 2nd place for Actian AI Vector DB track at Hacklytics 2026",
-    ],
-    tags: ["Python", "NLP", "FastAPI", "Actian Vector DB"],
-    demo: "https://bit.ly/RxGuard",
-    github: "https://github.com/gt12889/hacklytics2026",
-  },
-  {
-    name: "Inbox Cleanup Agent",
-    badge: "Personal Project · 2026",
-    badgeAccent: true,
-    bullets: [
-      "Gmail cleanup assistant powered by the Claude API and Google OAuth",
-      "Suggests what to unsubscribe from via a React + Node.js interface",
-    ],
-    tags: ["React", "Claude API", "Node.js", "OAuth"],
-    demo: "https://inbox-cleaning-agent.onrender.com/",
-    github: "https://github.com/Aishi25/Inbox_Cleaning_Agent",
-  },
-  {
-    name: "Springer Paper",
-    badge: "Published · 2026",
-    badgeAccent: true,
-    bullets: [
-      "Co-authored Springer-published bioinformatics research on hypergraph curvature in drug-target interactions",
-      "Conducted at UIC's Creative Algorithms Lab under Prof. DasGupta at age 17",
-    ],
-    tags: ["graph theory", "bioinformatics"],
-    demo: "http://bit.ly/HypergraphPaper",
-    github: null,
-  },
-  {
-    name: "TerraTrends",
-    badge: "Club · ML Research · 2026",
-    badgeAccent: true,
-    bullets: [
-      "LSTM time series model forecasting county-level economic growth across Georgia",
-      "Trained on multi-source panel data using 10-year sliding windows, producing 3-year sector-level forecasts",
-    ],
-    tags: ["LSTM", "pandas", "Python"],
-    demo: null,
-    github: "https://github.com/Aishi25/TerraTrends",
-  },
-  {
-    name: "BillBuddy",
-    badge: "AI ATL 2025",
-    badgeAccent: false,
-    bullets: [
-      "Medical bill analyzer using OCR and NLP to parse hospital bills and flag billing errors",
-      "Translates confusing line items into plain English so patients understand what they're charged for",
-    ],
-    tags: ["OCR", "NLP", "React", "Supabase"],
-    demo: "https://bit.ly/BillBuddy25",
-    github: "https://github.com/Aishi25/BillBuddyPrivate",
-  },
-];
+import { PROJECTS } from "@/content/projects";
 
 export function Projects() {
+  const router = useRouter();
+
   return (
     <SectionWrapper id="projects">
       <SectionLabel>projects</SectionLabel>
@@ -88,13 +16,24 @@ export function Projects() {
       <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
         {PROJECTS.map((p) => (
           <div
-            key={p.name}
+            key={p.slug}
+            role="link"
+            tabIndex={0}
+            aria-label={`View details for ${p.name}`}
+            onClick={() => router.push(`/projects/${p.slug}`)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter" || e.key === " ") {
+                e.preventDefault();
+                router.push(`/projects/${p.slug}`);
+              }
+            }}
             style={{
               background: "var(--surface)",
               border: "1px solid var(--border)",
               borderRadius: "var(--radius-lg)",
               padding: "1.5rem 1.75rem",
               transition: "border-color 0.15s",
+              cursor: "pointer",
             }}
             onMouseEnter={(e) => (e.currentTarget.style.borderColor = "var(--primary)")}
             onMouseLeave={(e) => (e.currentTarget.style.borderColor = "var(--border)")}
@@ -122,11 +61,12 @@ export function Projects() {
                     href={p.demo}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                     style={{ fontSize: "14px", color: "var(--primary-light)", textDecoration: "none", fontWeight: 500 }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "var(--primary-light)")}
                   >
-                    ↗ {p.name === "Springer Paper" ? "read paper" : p.name === "Aeroseal Chatbot" ? "visit site" : "demo"}
+                    ↗ {p.demoLabel}
                   </a>
                 )}
                 {p.github && (
@@ -134,6 +74,7 @@ export function Projects() {
                     href={p.github}
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={(e) => e.stopPropagation()}
                     style={{ fontSize: "14px", color: "var(--text-secondary)", textDecoration: "none", fontWeight: 500 }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
@@ -153,7 +94,7 @@ export function Projects() {
               ))}
             </div>
 
-            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "6px", alignItems: "center" }}>
               {p.tags.map((t) => (
                 <span
                   key={t}
@@ -169,6 +110,19 @@ export function Projects() {
                   {t}
                 </span>
               ))}
+              <Link
+                href={`/projects/${p.slug}`}
+                onClick={(e) => e.stopPropagation()}
+                style={{
+                  marginLeft: "auto",
+                  fontSize: "13px",
+                  color: "var(--primary-light)",
+                  textDecoration: "none",
+                  fontWeight: 500,
+                }}
+              >
+                learn more →
+              </Link>
             </div>
           </div>
         ))}
