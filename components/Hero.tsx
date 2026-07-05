@@ -277,6 +277,13 @@ export function Hero() {
                     >
                       <a
                         href="#projects"
+                        onClick={(e) => {
+                          const el = document.getElementById("projects");
+                          if (!el) return;
+                          e.preventDefault();
+                          el.scrollIntoView({ behavior: "smooth" });
+                          window.history.pushState(null, "", "#projects");
+                        }}
                         style={{
                           background: "var(--primary)",
                           color: "#fff",

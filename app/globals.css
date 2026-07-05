@@ -42,7 +42,8 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+/* Smooth scrolling is applied per-click for in-page nav (see Nav/Hero), not
+   globally, so route changes (opening a project, going back) jump instantly. */
 
 body {
   background: var(--bg);

@@ -1,6 +1,7 @@
 "use client";
 
 import { useTheme } from "next-themes";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const links = [
@@ -11,8 +12,19 @@ const links = [
 
 export function Nav() {
   const { theme, setTheme } = useTheme();
+  const pathname = usePathname();
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+
+  // On the home page, smooth-scroll to the section instead of doing a hash jump.
+  const handleSectionClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (pathname !== "/" || !href.startsWith("/#")) return;
+    const el = document.getElementById(href.slice(2));
+    if (!el) return;
+    e.preventDefault();
+    el.scrollIntoView({ behavior: "smooth" });
+    window.history.pushState(null, "", href);
+  };
 
   useEffect(() => {
     setMounted(true);
@@ -58,6 +70,7 @@ export function Nav() {
           <a
             key={l.label}
             href={l.href}
+            onClick={(e) => handleSectionClick(e, l.href)}
             style={{
               fontSize: "15px",
               color: "var(--text-secondary)",
