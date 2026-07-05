@@ -1,7 +1,7 @@
 // Project data shared by the Projects section (home page) and /projects/[slug] detail pages.
 //
 // Screenshots/videos live under /public. Entries with src/videoUrl = null render a
-// placeholder on the detail page — set the path once the file is dropped in.
+// placeholder on the detail page; set the path once the file is dropped in.
 
 export type Screenshot = {
   src: string | null; // e.g. "/images/projects/rxguard-1.png"; null = placeholder
@@ -43,25 +43,25 @@ export const PROJECTS: Project[] = [
     demoLabel: "visit site",
     github: null,
     overview: [
-      "During my AI/ML internship at Aeroseal, I worked on the company's production customer-facing chatbot — a retrieval-augmented generation (RAG) system that answers questions about Aeroseal's duct-sealing products, grounded in content crawled nightly from their websites. The stack is a React + TypeScript frontend, serverless Azure Functions backend, and Azure SQL for conversation data, with responses streamed token-by-token over Server-Sent Events.",
+      "During my AI/ML internship at Aeroseal, I worked on the company's production customer-facing chatbot. It's a retrieval-augmented generation (RAG) system that answers questions about Aeroseal's duct-sealing products, grounded in content crawled nightly from their websites. The stack is a React + TypeScript frontend, serverless Azure Functions backend, and Azure SQL for conversation data, with responses streamed token-by-token over Server-Sent Events.",
       "My biggest contribution was redesigning the conversational flow around a 2-tier prompt architecture. Instead of overloading one model with every possible instruction, a cost-efficient model first classifies each message into one of nine intents (product info, warranty, dealer onboarding, support, and so on), and the response model then receives only the base system prompt plus the module for that intent. This cut instruction dilution, eliminated conflicts between unrelated instruction sets, and freed up context for the model to actually use its vector store searches.",
-      "I also built session-based conversation tracking into the SQL backend — first messages get a generated session GUID returned over SSE, so follow-up messages retrieve conversation history and keep context across the exchange — and fixed a subtle ingestion pipeline bug (details below).",
+      "I also built session-based conversation tracking into the SQL backend; first messages get a generated session GUID returned over SSE, so follow-up messages retrieve conversation history and keep context across the exchange. And I fixed a subtle ingestion pipeline bug (details below).",
     ],
     techStack: [
       { name: "OpenAI API", role: "2-tier setup: a small model classifies intent, a larger model generates the response with only the relevant instruction module" },
       { name: "RAG pipeline", role: "Nightly website crawl with SHA-256 change detection; chunks embedded into a vector store and retrieved by cosine similarity at query time" },
-      { name: "Azure Functions", role: "Serverless backend — each endpoint wakes on request, so there's no idle server cost" },
+      { name: "Azure Functions", role: "Serverless backend; each endpoint wakes on request, so there's no idle server cost" },
       { name: "Azure SQL + Entity Framework", role: "Linked analytics and message tables with session tracking, queried from C# through EF" },
       { name: "React + TypeScript", role: "Chat frontend with incremental streaming updates over Server-Sent Events" },
     ],
     challenges: [
       {
         title: "Stale vectors after webpage updates",
-        body: "When a crawled page changed, the pipeline uploaded the new version but deletion of the old one could silently fail — leaving stale copies searchable, so the bot could cite outdated content. I fixed it by adding a PendingCleanup list to the ingestion ledger: old file IDs now survive across runs and are retried until they're confirmed removed from both storage and the vector store.",
+        body: "When a crawled page changed, the pipeline uploaded the new version but deletion of the old one could silently fail. That left stale copies searchable, so the bot could cite outdated content. I fixed it by adding a PendingCleanup list to the ingestion ledger: old file IDs now survive across runs and are retried until they're confirmed removed from both storage and the vector store.",
       },
       {
         title: "One prompt can't do everything",
-        body: "A single monolithic system prompt suffered from instruction dilution, contradictions between unrelated rules, and 'lost in the middle' degradation as it grew. Splitting classification from response generation — and only loading the intent module that applies — made the bot's behavior dramatically more consistent, and it was cheaper too, since the expensive model sees shorter prompts.",
+        body: "A single monolithic system prompt suffered from instruction dilution, contradictions between unrelated rules, and 'lost in the middle' degradation as it grew. Splitting classification from response generation, and only loading the intent module that applies, made the bot's behavior dramatically more consistent. It was cheaper too, since the expensive model sees shorter prompts.",
       },
     ],
     screenshots: [
@@ -88,8 +88,8 @@ export const PROJECTS: Project[] = [
     demoLabel: "demo",
     github: "https://github.com/gt12889/hacklytics2026",
     overview: [
-      "Searching the FDA's Adverse Event Reporting System (FAERS) for warfarin + ibuprofen returns wildly different results — up to a 1,532-to-1 disparity — depending on whether you type the generic name, a brand name like Coumadin, a salt form, or just 'blood thinner.' That vocabulary gap means keyword search doesn't just return fewer results; it returns a systematically biased subset, and the bias is invisible to the researcher.",
-      "RxGuard closes that gap with semantic search. We built a four-stage pipeline: extract reports from openFDA across 70 high-risk drug classes, normalize drug names across variants and misspellings, embed report narratives as 384-dimensional vectors with sentence-transformers, and load them into a vector database for similarity search. Queries in plain language return case counts, similarity-ranked comparable cases, and Reporting Odds Ratio metrics that quantify safety signals — with a side-by-side view of how much traditional keyword search misses.",
+      "Searching the FDA's Adverse Event Reporting System (FAERS) for warfarin + ibuprofen returns wildly different results, up to a 1,532-to-1 disparity, depending on whether you type the generic name, a brand name like Coumadin, a salt form, or just 'blood thinner.' That vocabulary gap means keyword search doesn't just return fewer results; it returns a systematically biased subset, and the bias is invisible to the researcher.",
+      "RxGuard closes that gap with semantic search. We built a four-stage pipeline: extract reports from openFDA across 70 high-risk drug classes, normalize drug names across variants and misspellings, embed report narratives as 384-dimensional vectors with sentence-transformers, and load them into a vector database for similarity search. Queries in plain language return case counts, similarity-ranked comparable cases, and Reporting Odds Ratio metrics that quantify safety signals; it also shows a side-by-side view of how much traditional keyword search misses.",
       "Rather than a black-box AI verdict, RxGuard shows its work: contextual RAG retrieves historically similar patient cases based on medications and pre-existing conditions, so every flagged interaction is backed by real, inspectable reports. The project won 2nd place in the Actian AI Vector DB track at Hacklytics 2026, Georgia Tech's data science hackathon.",
     ],
     techStack: [
@@ -102,7 +102,7 @@ export const PROJECTS: Project[] = [
     challenges: [
       {
         title: "Identical drugs, dozens of names",
-        body: "Across 11.5M reports the same drug appears under generic names, brand names, salt forms, foreign spellings, and outright typos — plus MedDRA terminology mismatches like British vs. American spellings creating vocabulary gaps researchers can't even see. Normalization plus semantic embeddings handled variation that no keyword list could enumerate.",
+        body: "Across 11.5M reports the same drug appears under generic names, brand names, salt forms, foreign spellings, and outright typos. There are also MedDRA terminology mismatches, like British vs. American spellings, that create vocabulary gaps researchers can't even see. Normalization plus semantic embeddings handled variation that no keyword list could enumerate.",
       },
       {
         title: "Avoiding black-box AI in a medical context",
@@ -110,7 +110,7 @@ export const PROJECTS: Project[] = [
       },
     ],
     screenshots: [
-      { src: "/images/projects/rxguard-1.png", caption: "RxGuard: semantic drug interaction intelligence over FDA adverse event reports" },
+      { src: "/images/projects/rxguard-1.png", caption: "The analysis input: describe the patient and proposed medication, or try a preset example" },
       { src: "/images/projects/rxguard-2.png", caption: "Adverse event statistics with similarity-ranked patient cases for warfarin + ibuprofen" },
     ],
     videoUrl: "/videos/rxguard-demo.mp4",
@@ -130,8 +130,8 @@ export const PROJECTS: Project[] = [
     demoLabel: "demo",
     github: "https://github.com/Aishi25/Inbox_Cleaning_Agent",
     overview: [
-      "Inbox Cleanup Agent connects to your Gmail via Google OAuth, scans your recent email, and uses Claude to identify subscription senders and recommend what to unsubscribe from. One scan of my own inbox surfaced 34 subscription senders across 81 emails — each with a one-line explanation of why it's probably noise and a one-click jump to that sender's latest email in Gmail, so you decide before anything gets the boot.",
-      "The app is a three-tier stack: a React (Vite) frontend, a Node.js/Express backend that orchestrates the APIs, and two services — the Gmail REST API for scoped email access and Claude for the analysis. The backend fetches recent messages, forwards them to Claude with structured analysis instructions, and the UI renders the results as a dashboard of sender cards grouped into categories (Newsletters, Marketing & promos, Product updates, Social) with per-category counts and stats.",
+      "Inbox Cleanup Agent connects to your Gmail via Google OAuth, scans your recent email, and uses Claude to identify subscription senders and recommend what to unsubscribe from. One scan of my own inbox surfaced 34 subscription senders across 81 emails; each has a one-line explanation of why it's probably noise and a one-click jump to that sender's latest email in Gmail, so you decide before anything gets the boot.",
+      "The app is a three-tier stack: a React (Vite) frontend, a Node.js/Express backend that orchestrates the APIs, and two services: the Gmail REST API for scoped email access and Claude for the analysis. The backend fetches recent messages, forwards them to Claude with structured analysis instructions, and the UI renders the results as a dashboard of sender cards grouped into categories (Newsletters, Marketing & promos, Product updates, Social) with per-category counts and stats.",
     ],
     techStack: [
       { name: "Claude API", role: "Analyzes senders and recommends unsubscribes, constrained to a fixed five-category taxonomy for reliable filtering" },
@@ -142,7 +142,7 @@ export const PROJECTS: Project[] = [
     challenges: [
       {
         title: "Free-form LLM output breaks UIs",
-        body: "Early versions let Claude invent its own category labels, which made filtering unreliable. Constraining the system prompt to exactly five allowed category values ('Newsletters', 'Marketing & promos', 'Product updates', 'Social', 'All else') turned the output into something the UI could depend on — a small prompt change that fixed a whole class of bugs.",
+        body: "Early versions let Claude invent its own category labels, which made filtering unreliable. Constraining the system prompt to exactly five allowed category values ('Newsletters', 'Marketing & promos', 'Product updates', 'Social', 'All else') turned the output into something the UI could depend on; a small prompt change that fixed a whole class of bugs.",
       },
       {
         title: "Finding the right way into Gmail",
@@ -150,7 +150,7 @@ export const PROJECTS: Project[] = [
       },
     ],
     screenshots: [
-      { src: "/images/projects/inbox-cleanup-agent-1.png", caption: "Onboarding: connect Google, scan, review — nothing is deleted without you" },
+      { src: "/images/projects/inbox-cleanup-agent-1.png", caption: "Onboarding: connect Google, scan, review; nothing is deleted without you" },
       { src: "/images/projects/inbox-cleanup-agent-2.png", caption: "Scan results: 34 senders categorized by Claude, each with a reason and Gmail link" },
     ],
     videoUrl: null,
@@ -170,7 +170,7 @@ export const PROJECTS: Project[] = [
     demoLabel: "read paper",
     github: null,
     overview: [
-      "At 17, I co-authored bioinformatics research at the University of Illinois Chicago's Creative Algorithms Lab under Prof. Bhaskar DasGupta, later published by Springer. The work applies hypergraph curvature — a concept from geometric graph theory — to the analysis of drug-target interaction networks.",
+      "At 17, I co-authored bioinformatics research at the University of Illinois Chicago's Creative Algorithms Lab under Prof. Bhaskar DasGupta, later published by Springer. The work applies hypergraph curvature, a concept from geometric graph theory, to the analysis of drug-target interaction networks.",
       "Modeling drug-target relationships as hypergraphs (where a single edge can connect many nodes) captures the many-to-many nature of how drugs bind to protein targets better than ordinary graphs, and curvature measures reveal structural properties of those interaction networks.",
     ],
     techStack: [
@@ -180,7 +180,7 @@ export const PROJECTS: Project[] = [
     challenges: [
       {
         title: "Learning research-level math as a high schooler",
-        body: "Discrete curvature on hypergraphs isn't taught anywhere near a high school curriculum. Contributing meaningfully meant closing that gap fast — working through the underlying graph theory independently while keeping pace with the lab.",
+        body: "Discrete curvature on hypergraphs isn't taught anywhere near a high school curriculum. Contributing meaningfully meant closing that gap fast; working through the underlying graph theory independently while keeping pace with the lab.",
       },
     ],
     screenshots: [
@@ -204,7 +204,7 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/Aishi25/TerraTrends",
     overview: [
       "TerraTrends is an ML research project forecasting economic growth for every county in Georgia at the sector level. An LSTM time series model is trained on multi-source panel data using 10-year sliding windows, producing 3-year forward forecasts per sector.",
-      "The project involved assembling and aligning panel data from multiple public sources into a consistent county-by-year format before any modeling could happen — a substantial data engineering effort in pandas.",
+      "The project involved assembling and aligning panel data from multiple public sources into a consistent county-by-year format before any modeling could happen; a substantial data engineering effort in pandas.",
     ],
     techStack: [
       { name: "LSTM (deep learning)", role: "Sequence model capturing temporal patterns in county economic indicators" },
@@ -242,8 +242,8 @@ export const PROJECTS: Project[] = [
     demoLabel: "demo",
     github: "https://github.com/Aishi25/BillBuddyPrivate",
     overview: [
-      "Over 80% of U.S. medical bills contain errors, costing Americans more than $125 billion a year — and most patients don't have the confidence or vocabulary to push back. Built at the AI ATL 2025 hackathon, BillBuddy closes that gap: upload a bill as a PDF or photo, and in about 60 seconds it extracts every line item, runs multi-layer validation to catch duplicate charges, invalid codes, and overcharges (compared against Medicare benchmarks), and explains each issue in plain English.",
-      "The signature feature is the 1-Click Dispute Letter Generator: once issues are found, BillBuddy drafts a professional, ready-to-send dispute letter personalized with the bill's details and findings. Text extraction is a hybrid OCR pipeline — PDF.js for digital PDFs, GPT-4o Vision for scanned images — with GPT-4o structuring the extracted text and GPT-4o-mini writing the letters. The app is estimated to save patients $200–$3,000 per bill.",
+      "Over 80% of U.S. medical bills contain errors, costing Americans more than $125 billion a year; most patients don't have the confidence or vocabulary to push back. Built at the AI ATL 2025 hackathon, BillBuddy closes that gap: upload a bill as a PDF or photo, and in about 60 seconds it extracts every line item, runs multi-layer validation to catch duplicate charges, invalid codes, and overcharges (compared against Medicare benchmarks), and explains each issue in plain English.",
+      "The signature feature is the 1-Click Dispute Letter Generator: once issues are found, BillBuddy drafts a professional, ready-to-send dispute letter personalized with the bill's details and findings. Text extraction is a hybrid OCR pipeline: PDF.js for digital PDFs, GPT-4o Vision for scanned images. GPT-4o then structures the extracted text and GPT-4o-mini writes the letters. The app is estimated to save patients $200 to $3,000 per bill.",
     ],
     techStack: [
       { name: "Hybrid OCR", role: "PDF.js for fast extraction from digital PDFs; GPT-4o Vision for scanned images and photos" },
@@ -259,7 +259,7 @@ export const PROJECTS: Project[] = [
       },
       {
         title: "Getting consistent structure out of an LLM",
-        body: "Reliable error detection needs consistent JSON, and early prompts hallucinated fields or drifted in format. Multi-shot, role-based prompts fixed it — the real lesson of the project was that prompt architecture, not the API calls, is the core engineering challenge in modern AI apps.",
+        body: "Reliable error detection needs consistent JSON, and early prompts hallucinated fields or drifted in format. Multi-shot, role-based prompts fixed it. The real lesson of the project was that prompt architecture, not the API calls, is the core engineering challenge in modern AI apps.",
       },
       {
         title: "Bills that all look different",

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import Link from "next/link";
-import Image from "next/image";
 import { notFound } from "next/navigation";
 import { Nav } from "@/components/Nav";
 import { Footer } from "@/components/Footer";
+import { Snapshots } from "@/components/Snapshots";
 import { SectionLabel } from "@/components/ui/SectionWrapper";
-import { PROJECTS, getProject, type Screenshot } from "@/content/projects";
+import { PROJECTS, getProject } from "@/content/projects";
 
 export function generateStaticParams() {
   return PROJECTS.map((p) => ({ slug: p.slug }));
@@ -57,34 +56,6 @@ function Placeholder({ label, hint, aspect }: { label: string; hint: string; asp
   );
 }
 
-function ScreenshotFigure({ shot, slug, index }: { shot: Screenshot; slug: string; index: number }) {
-  return (
-    <figure style={{ margin: 0, display: "flex", flexDirection: "column", gap: "8px" }}>
-      {shot.src ? (
-        <Image
-          src={shot.src}
-          alt={shot.caption}
-          width={1200}
-          height={750}
-          style={{
-            width: "100%",
-            height: "auto",
-            borderRadius: "var(--radius-lg)",
-            border: "1px solid var(--border)",
-          }}
-        />
-      ) : (
-        <Placeholder
-          label="Screenshot coming soon"
-          hint={`add /public/images/projects/${slug}-${index + 1}.png and set src in content/projects.ts`}
-          aspect="16 / 10"
-        />
-      )}
-      <figcaption style={{ fontSize: "13px", color: "var(--text-secondary)" }}>{shot.caption}</figcaption>
-    </figure>
-  );
-}
-
 function SubHeading({ children }: { children: React.ReactNode }) {
   return (
     <h2
@@ -114,8 +85,11 @@ export default async function ProjectPage({
     <>
       <Nav />
       <main>
-        <article style={{ maxWidth: "820px", margin: "0 auto", padding: "8rem 1.5rem 6rem" }}>
-          <Link
+        <article style={{ maxWidth: "1080px", margin: "0 auto", padding: "8rem 1.5rem 6rem" }}>
+          {/* Plain anchor (not next/link) is intentional: a full-page load jumps
+              straight to #projects with no smooth-scroll animation. */}
+          {/* eslint-disable-next-line @next/next/no-html-link-for-pages */}
+          <a
             href="/#projects"
             style={{
               fontSize: "14px",
@@ -125,7 +99,7 @@ export default async function ProjectPage({
             }}
           >
             ← all projects
-          </Link>
+          </a>
 
           <div style={{ marginTop: "2rem" }}>
             <SectionLabel>project</SectionLabel>
@@ -229,18 +203,8 @@ export default async function ProjectPage({
             />
           )}
 
-          <SubHeading>screenshots</SubHeading>
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
-              gap: "1.25rem",
-            }}
-          >
-            {project.screenshots.map((shot, i) => (
-              <ScreenshotFigure key={i} shot={shot} slug={project.slug} index={i} />
-            ))}
-          </div>
+          <SubHeading>snapshots</SubHeading>
+          <Snapshots shots={project.screenshots} slug={project.slug} />
 
           <SubHeading>how it&apos;s built</SubHeading>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
