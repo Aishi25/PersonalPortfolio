@@ -206,7 +206,7 @@ export default async function ProjectPage({
           <SubHeading>snapshots</SubHeading>
           <Snapshots shots={project.screenshots} slug={project.slug} />
 
-          <SubHeading>how it&apos;s built</SubHeading>
+          <SubHeading>{project.techStackHeading ?? "how it's built"}</SubHeading>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {project.techStack.map((t) => (
               <div

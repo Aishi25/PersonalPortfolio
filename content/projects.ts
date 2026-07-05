@@ -21,6 +21,7 @@ export type Project = {
   github: string | null;
   overview: string[]; // paragraphs
   techStack: { name: string; role: string }[];
+  techStackHeading?: string; // defaults to "how it's built"
   challenges: { title: string; body: string }[];
   screenshots: Screenshot[];
   videoUrl: string | null; // e.g. "/videos/rxguard-demo.mp4"
@@ -132,7 +133,7 @@ export const PROJECTS: Project[] = [
     github: "https://github.com/Aishi25/Inbox_Cleaning_Agent",
     overview: [
       "Inbox Cleanup Agent connects to your Gmail via Google OAuth, scans your recent email, and uses Claude to identify subscription senders and recommend what to unsubscribe from. One scan of my own inbox surfaced 34 subscription senders across 81 emails; each has a one-line explanation of why it's probably noise and a one-click jump to that sender's latest email in Gmail, so you decide before anything gets the boot.",
-      "The app is a three-tier stack: a React (Vite) frontend, a Node.js/Express backend that orchestrates the APIs, and two services: the Gmail REST API for scoped email access and Claude for the analysis. The backend fetches recent messages, forwards them to Claude with structured analysis instructions, and the UI renders the results as a dashboard of sender cards grouped into categories (Newsletters, Marketing & promos, Product updates, Social) with per-category counts and stats.",
+      "The app is a three-tier stack: a React (Vite) frontend, a Node.js/Express backend that orchestrates the APIs, and two services: the Gmail REST API for scoped email access and Claude for the analysis. The backend fetches recent messages, forwards them to Claude with structured analysis instructions, and the UI renders the results as a dashboard of sender cards grouped into categories (Newsletters, Marketing & promos, Social) with per-category counts and stats.",
     ],
     techStack: [
       { name: "Claude API", role: "Analyzes senders and recommends unsubscribes, constrained to a fixed five-category taxonomy for reliable filtering" },
@@ -143,12 +144,16 @@ export const PROJECTS: Project[] = [
     ],
     challenges: [
       {
-        title: "Free-form LLM output breaks UIs",
-        body: "Early versions let Claude invent its own category labels, which made filtering unreliable. Constraining the system prompt to exactly five allowed category values ('Newsletters', 'Marketing & promos', 'Product updates', 'Social', 'All else') turned the output into something the UI could depend on; a small prompt change that fixed a whole class of bugs.",
+        title: "The CORS wall and the MCP dead end",
+        body: "Getting the browser to talk to Gmail was the hardest part. I first reached for Gmail's MCP server, but it's meant for Claude.ai's own internal use and I couldn't drive it from my own app. Calling the Gmail API directly from the React frontend then ran straight into CORS errors on every request. The fix was to stop calling Gmail from the browser at all: I built a Node.js/Express backend that holds the OAuth flow and brokers every Gmail and Claude call, so the frontend only ever talks to my own server.",
       },
       {
-        title: "Finding the right way into Gmail",
-        body: "My first attempt used Gmail's MCP server, which turned out to be internal to Claude.ai and unusable from my own backend. I switched to the Gmail REST API with a proper OAuth flow, which also resolved CORS issues by routing everything through the Express backend.",
+        title: "Free-form LLM output breaks UIs",
+        body: "Early versions let Claude invent its own category labels, which made filtering unreliable. Constraining the system prompt to a fixed set of allowed category values turned the output into something the UI could depend on; a small prompt change that fixed a whole class of bugs.",
+      },
+      {
+        title: "Fitting an inbox into a context window",
+        body: "You can't hand Claude thousands of raw emails at once. The backend groups messages by sender and summarizes each sender's metadata first, so Claude reasons over a compact digest of the inbox instead of the full message dump, keeping the analysis fast and within token limits.",
       },
     ],
     screenshots: [
@@ -162,31 +167,40 @@ export const PROJECTS: Project[] = [
     name: "Springer Paper",
     badge: "Published · 2026",
     badgeAccent: true,
-    tagline: "Published bioinformatics research on hypergraph curvature in drug-target interactions.",
+    tagline: "A Springer-published review of how geometric curvature measures reveal the structure of complex networks, co-authored at 17.",
     bullets: [
-      "Co-authored Springer-published bioinformatics research on hypergraph curvature in drug-target interactions",
-      "Conducted at UIC's Creative Algorithms Lab under Prof. DasGupta at age 17",
+      "Co-authored 'On analyzing networks via curvature measures,' a Springer review of curvature-based network analysis",
+      "Written with Prof. Réka Albert and Prof. Bhaskar DasGupta's group at UIC's Creative Algorithms Lab, at age 17",
     ],
-    tags: ["graph theory", "bioinformatics"],
+    tags: ["graph theory", "network science", "curvature"],
     demo: "http://bit.ly/HypergraphPaper",
     demoLabel: "read paper",
     github: null,
     overview: [
-      "At 17, I co-authored bioinformatics research at the University of Illinois Chicago's Creative Algorithms Lab under Prof. Bhaskar DasGupta, later published by Springer. The work applies hypergraph curvature, a concept from geometric graph theory, to the analysis of drug-target interaction networks.",
-      "Modeling drug-target relationships as hypergraphs (where a single edge can connect many nodes) captures the many-to-many nature of how drugs bind to protein targets better than ordinary graphs, and curvature measures reveal structural properties of those interaction networks.",
+      "At 17, I was a co-author on 'On analyzing networks via curvature measures: review of methodologies and applications,' a Springer-published review written with Prof. Réka Albert and Prof. Bhaskar DasGupta's group at the University of Illinois Chicago's Creative Algorithms Lab. The paper surveys how notions of curvature, originally from geometry and physics, can be carried over to networks to reveal their large-scale structure.",
+      "Where an ordinary graph only records pairwise links, curvature measures such as Ollivier-Ricci and Forman-Ricci curvature capture the 'shape' of a network: how tightly knit or tree-like it is, and where its structural bottlenecks lie. The review connects these measures to real applications across biological, social, and brain networks, including hypergraph settings where a single edge can join many nodes at once.",
     ],
+    techStackHeading: "notable references",
     techStack: [
-      { name: "Graph theory", role: "Hypergraph models and discrete curvature measures for network analysis" },
-      { name: "Bioinformatics", role: "Drug-target interaction datasets and their biological interpretation" },
+      { name: "Ollivier (2009)", role: "'Ricci curvature of Markov chains on metric spaces': the foundation of Ollivier-Ricci curvature, one of the two measures the review centers on" },
+      { name: "Forman (2003)", role: "'Bochner's method for cell complexes and combinatorial Ricci curvature': origin of Forman-Ricci curvature, the discrete measure that scales to large networks" },
+      { name: "Perelman (2002)", role: "'The entropy formula for the Ricci flow': the celebrated Ricci-flow work that motivates carrying curvature into discrete settings" },
+      { name: "Albert & Barabási (2002)", role: "'Statistical mechanics of complex networks': the foundational survey of complex-network structure the review builds on" },
+      { name: "Sia, Jonckheere & Bogdan (2021)", role: "Ollivier-Ricci curvature for community detection (Nature Communications), a flagship application the review surveys" },
+      { name: "Chatterjee, Albert & DasGupta (2021)", role: "Forman-Ricci curvature for anomaly detection in human brain networks (Scientific Reports), application work from the same group" },
     ],
     challenges: [
       {
+        title: "Reading the field before contributing to it",
+        body: "Before I could add anything, I was tasked with mapping what research already existed: reading a stack of scholarly papers on network curvature, distilling each one, and presenting the takeaways to the whole lab every week. For someone who had never done academic research before, getting fluent enough in an unfamiliar field to summarize it for experts on a weekly cadence was the steepest part of the climb.",
+      },
+      {
         title: "Learning research-level math as a high schooler",
-        body: "Discrete curvature on hypergraphs isn't taught anywhere near a high school curriculum. Contributing meaningfully meant closing that gap fast; working through the underlying graph theory independently while keeping pace with the lab.",
+        body: "Discrete curvature, Ricci flow, and Gromov hyperbolicity aren't taught anywhere near a high school curriculum. Contributing meaningfully meant closing that gap fast; working through the underlying geometry and graph theory independently while keeping pace with the lab.",
       },
     ],
     screenshots: [
-      { src: null, caption: "Figure from the paper: hypergraph model of drug-target interactions" },
+      { src: null, caption: "Figure from the paper: curvature measures on a network" },
     ],
     videoUrl: null,
   },
@@ -195,32 +209,39 @@ export const PROJECTS: Project[] = [
     name: "TerraTrends",
     badge: "Club · ML Research · 2026",
     badgeAccent: true,
-    tagline: "LSTM forecasts of county-level economic growth across Georgia.",
+    tagline: "A multi-entity LSTM forecasting sector-level economic growth for all 159 Georgia counties.",
     bullets: [
-      "LSTM time series model forecasting county-level economic growth across Georgia",
-      "Trained on multi-source panel data using 10-year sliding windows, producing 3-year sector-level forecasts",
+      "Multi-entity LSTM with learned county, sector, and year embeddings forecasting economic growth for all 159 Georgia counties",
+      "Trained on a merged BEA / QCEW / Census panel with 10-year windows, producing 4-class, 3-year sector-level forecasts",
     ],
-    tags: ["LSTM", "pandas", "Python"],
+    tags: ["PyTorch", "LSTM", "pandas", "Python"],
     demo: null,
     demoLabel: "demo",
     github: "https://github.com/Aishi25/TerraTrends",
     overview: [
-      "TerraTrends is an ML research project forecasting economic growth for every county in Georgia at the sector level. An LSTM time series model is trained on multi-source panel data using 10-year sliding windows, producing 3-year forward forecasts per sector.",
-      "The project involved assembling and aligning panel data from multiple public sources into a consistent county-by-year format before any modeling could happen; a substantial data engineering effort in pandas.",
+      "TerraTrends forecasts economic growth for all 159 Georgia counties at the industry-sector level. At its core is a multi-entity LSTM: rather than one model per county, it learns embeddings for each county (159), sector (20), and year, then feeds them alongside a sequence of economic indicators, so a single network can forecast anywhere in the state while still capturing each county's local character.",
+      "Each yearly timestep combines five macro indicators (unemployment, per-capita personal income, real GDP and its percent change, and educational attainment) with that sector's contribution to GDP, a spatial feature averaging the same sector's growth in neighboring counties, and QCEW employment and wage growth. Ten-year windows feed a 2-layer LSTM whose per-horizon heads output a four-class growth signal (shrinking, flat, moderate, strong) for each of the next three years, computed on a 3-year rolling-average basis.",
+      "As a Machine Learning Analyst on the project under GT's Big Data Big Impact, much of the work lived in the data and the guardrails: assembling a clean county-by-year panel from BEA, QCEW, BLS, and Census sources, then adding robustness measures like per-sector winsorization and small-county confidence dampening so noisy rural data doesn't produce wild forecasts.",
     ],
     techStack: [
-      { name: "LSTM (deep learning)", role: "Sequence model capturing temporal patterns in county economic indicators" },
-      { name: "pandas", role: "Cleaning and aligning multi-source panel data into training windows" },
-      { name: "Python", role: "End-to-end pipeline from data prep through training and evaluation" },
+      { name: "Multi-entity LSTM (PyTorch)", role: "Learned county/sector/year embeddings feed a 2-layer, 64-unit LSTM with a separate classification head per forecast year" },
+      { name: "4-class growth signal", role: "Predicts shrinking / flat / moderate / strong growth per sector on a 3-year rolling average, with class-weighted loss to handle imbalance" },
+      { name: "Spatial neighbor features", role: "Averages a sector's growth across up to 3 adjacent Georgia counties using a FIPS adjacency map" },
+      { name: "pandas", role: "Merges BEA sector GDP, QCEW employment/wage, income, unemployment, and education into one county-by-year panel" },
+      { name: "Training setup", role: "AdamW with cosine-annealing LR, dropout 0.4, gradient clipping, and a temporal train/val/test split (≤2018 / 2019 / ≥2020) to prevent leakage" },
     ],
     challenges: [
       {
-        title: "Small data, many counties",
-        body: "County-level economic data is annual, so even a decade of history gives few observations per county. Sliding 10-year windows across all counties pooled enough sequences to train on while preserving each county's local dynamics.",
+        title: "Noisy rural counties skewing forecasts",
+        body: "In a small county, a single establishment can swing a sector's contribution to GDP by tens of percentage points (Agriculture hit 429% in one county). Two fixes tamed this: per-sector winsorization at the 2nd and 98th percentiles before training, and confidence dampening at inference that pulls predictions for counties under 40,000 people toward a neutral prior.",
+      },
+      {
+        title: "A model boundary the data couldn't support",
+        body: "Separating 'moderate' from 'strong' growth proved unreliable; the model's moderate recall was only about 27%. Rather than trust a shaky four-way call, I collapsed both classes into a single 'growing' signal for the final revenue score, turning an unstable prediction into a robust read on whether a sector is growing at all.",
       },
       {
         title: "Merging inconsistent public datasets",
-        body: "Different sources disagree on county naming, coverage years, and sector definitions. Building one coherent panel dataset took as much care as the modeling itself.",
+        body: "BEA, QCEW, BLS, and Census sources disagree on county naming, coverage years, and sector definitions. Building one coherent county-by-year panel took as much care as the modeling itself.",
       },
     ],
     screenshots: [
