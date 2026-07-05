@@ -98,7 +98,7 @@ export const PROJECTS: Project[] = [
       { name: "Actian Vector DB", role: "Stores and queries embedded reports for the semantic search and similar-case retrieval" },
       { name: "FastAPI", role: "Backend API serving search, statistics, and similar-case rankings" },
       { name: "React + Streamlit", role: "Frontend for querying and visualizing adverse event statistics" },
-      { name: "Render", role: "Hosts the deployed app" },
+      { name: "Render", role: "Deployment" },
     ],
     challenges: [
       {
@@ -139,7 +139,7 @@ export const PROJECTS: Project[] = [
       { name: "Gmail REST API + Google OAuth", role: "Scoped, passwordless access to the inbox; the backend fetches recent emails for analysis" },
       { name: "Node.js / Express", role: "Backend intermediary handling OAuth, Gmail calls, Claude requests, and CORS" },
       { name: "React + Vite", role: "Dashboard UI with sender cards, category badges, stat cards, and client-side filtering" },
-      { name: "Render", role: "Hosts the deployed app" },
+      { name: "Render", role: "Deployment" },
     ],
     challenges: [
       {
