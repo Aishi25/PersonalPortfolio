@@ -148,10 +148,6 @@ export const PROJECTS: Project[] = [
         body: "Getting the browser to talk to Gmail was the hardest part. I first reached for Gmail's MCP server, but it's meant for Claude.ai's own internal use and I couldn't drive it from my own app. Calling the Gmail API directly from the React frontend then ran straight into CORS errors on every request. The fix was to stop calling Gmail from the browser at all: I built a Node.js/Express backend that holds the OAuth flow and brokers every Gmail and Claude call, so the frontend only ever talks to my own server.",
       },
       {
-        title: "Free-form LLM output breaks UIs",
-        body: "Early versions let Claude invent its own category labels, which made filtering unreliable. Constraining the system prompt to a fixed set of allowed category values turned the output into something the UI could depend on; a small prompt change that fixed a whole class of bugs.",
-      },
-      {
         title: "Fitting an inbox into a context window",
         body: "You can't hand Claude thousands of raw emails at once. The backend groups messages by sender and summarizes each sender's metadata first, so Claude reasons over a compact digest of the inbox instead of the full message dump, keeping the analysis fast and within token limits.",
       },
@@ -169,8 +165,8 @@ export const PROJECTS: Project[] = [
     badgeAccent: true,
     tagline: "A Springer-published review of how geometric curvature measures reveal the structure of complex networks, co-authored at 17.",
     bullets: [
-      "Co-authored 'On analyzing networks via curvature measures,' a Springer review of curvature-based network analysis",
-      "Written with Prof. Réka Albert and Prof. Bhaskar DasGupta's group at UIC's Creative Algorithms Lab, at age 17",
+      "Co-authored Springer-published bioinformatics research on hypergraph curvature in drug-target interactions",
+      "Conducted at UIC's Creative Algorithms Lab under Prof. DasGupta at age 17",
     ],
     tags: ["graph theory", "network science", "curvature"],
     demo: "http://bit.ly/HypergraphPaper",
@@ -212,7 +208,7 @@ export const PROJECTS: Project[] = [
     tagline: "A multi-entity LSTM forecasting sector-level economic growth for all 159 Georgia counties.",
     bullets: [
       "Multi-entity LSTM with learned county, sector, and year embeddings forecasting economic growth for all 159 Georgia counties",
-      "Trained on a merged BEA / QCEW / Census panel with 10-year windows, producing 4-class, 3-year sector-level forecasts",
+      "Trained on a merged BEA / QCEW / Census panel with 10-year windows, producing 3-year sector-level forecasts",
     ],
     tags: ["PyTorch", "LSTM", "pandas", "Python"],
     demo: null,
