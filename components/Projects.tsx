@@ -9,7 +9,7 @@ export function Projects() {
   const router = useRouter();
 
   return (
-    <SectionWrapper id="projects">
+    <SectionWrapper id="projects" style={{ paddingTop: "3rem" }}>
       <SectionLabel>projects</SectionLabel>
       <SectionHeading>things i&apos;ve built</SectionHeading>
 

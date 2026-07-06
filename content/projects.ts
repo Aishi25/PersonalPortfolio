@@ -80,9 +80,9 @@ export const PROJECTS: Project[] = [
     badgeAccent: true,
     tagline: "Semantic drug interaction intelligence over millions of FDA adverse event reports.",
     bullets: [
+      "Won 2nd place for Actian AI Vector DB track at Hacklytics 2026",
       "AI drug interaction analyzer ingesting 11.5M+ FAERS adverse event reports",
       "384-dim vector embeddings for semantic search, surfaces dangerous medication combinations",
-      "Won 2nd place for Actian AI Vector DB track at Hacklytics 2026",
     ],
     tags: ["Python", "NLP", "FastAPI", "Actian Vector DB"],
     demo: "https://bit.ly/RxGuard",

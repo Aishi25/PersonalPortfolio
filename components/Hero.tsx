@@ -14,7 +14,7 @@ const RESPONSE_LINES = [
   { text: "→ GT Big Data Big Impact — LSTM economic forecasting + Gemini-powered club chatbot", type: "bullet" },
   { text: "→ Springer paper (2026) — hypergraph curvature in drug-target interactions, co-authored at 17", type: "bullet" },
   { text: "---", type: "divider" },
-  { text: "confidence: 110%  ·  recommendation: hire her", type: "footer" },
+  { text: "confidence score: 110%  ·  recommendation: hire her", type: "footer" },
 ];
 
 

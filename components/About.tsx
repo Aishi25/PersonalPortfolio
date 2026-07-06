@@ -72,7 +72,7 @@ function TraitTypewriter() {
 
 export function About() {
   return (
-    <SectionWrapper id="about" style={{ paddingTop: "3rem" }}>
+    <SectionWrapper id="about" style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
       <SectionLabel>about</SectionLabel>
 
       <div
@@ -280,20 +280,23 @@ export function About() {
               style={{
                 display: "inline-flex",
                 alignItems: "center",
-                gap: "8px",
-                fontSize: "15px",
-                fontWeight: 500,
+                gap: "10px",
+                fontSize: "17px",
+                fontWeight: 600,
+                letterSpacing: "0.01em",
                 color: "var(--primary-light)",
                 background: "var(--primary-dim)",
-                border: "1px solid rgba(61,157,174,0.3)",
+                border: "1.5px solid var(--primary-light)",
                 borderRadius: "var(--radius)",
-                padding: "8px 16px",
+                padding: "11px 20px",
+                boxShadow: "0 0 0 4px var(--primary-dim), 0 4px 20px rgba(61,157,174,0.25)",
+                animation: "glow 2.4s ease-in-out infinite",
               }}
             >
               <span
                 style={{
-                  width: "7px",
-                  height: "7px",
+                  width: "9px",
+                  height: "9px",
                   borderRadius: "50%",
                   background: "var(--primary-light)",
                   display: "inline-block",
@@ -315,6 +318,10 @@ export function About() {
         @keyframes pulse {
           0%, 100% { opacity: 1; transform: scale(1); }
           50% { opacity: 0.5; transform: scale(0.85); }
+        }
+        @keyframes glow {
+          0%, 100% { box-shadow: 0 0 0 4px var(--primary-dim), 0 4px 20px rgba(61,157,174,0.25); }
+          50% { box-shadow: 0 0 0 4px var(--primary-dim), 0 4px 28px rgba(61,157,174,0.5); }
         }
         @media (max-width: 700px) {
           .about-grid {
