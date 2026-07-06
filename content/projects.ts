@@ -20,7 +20,7 @@ export type Project = {
   demoLabel: string;
   github: string | null;
   overview: string[]; // paragraphs
-  techStack: { name: string; role: string }[];
+  techStack?: { name: string; role: string }[]; // omit to hide the section entirely
   techStackHeading?: string; // defaults to "how it's built"
   challenges: { title: string; body: string }[];
   screenshots: Screenshot[];
@@ -173,17 +173,8 @@ export const PROJECTS: Project[] = [
     demoLabel: "read paper",
     github: null,
     overview: [
-      "At 17, I was a co-author on 'On analyzing networks via curvature measures: review of methodologies and applications,' a Springer-published review written with Prof. Réka Albert and Prof. Bhaskar DasGupta's group at the University of Illinois Chicago's Creative Algorithms Lab. The paper surveys how notions of curvature, originally from geometry and physics, can be carried over to networks to reveal their large-scale structure.",
+      "At 17, I was a co-author on 'On analyzing networks via curvature measures: review of methodologies and applications,' a Springer-published review written with Prof. Bhaskar DasGupta's group at the University of Illinois Chicago's Creative Algorithms Lab. The paper surveys how notions of curvature, originally from geometry and physics, can be carried over to networks to reveal their large-scale structure.",
       "Where an ordinary graph only records pairwise links, curvature measures such as Ollivier-Ricci and Forman-Ricci curvature capture the 'shape' of a network: how tightly knit or tree-like it is, and where its structural bottlenecks lie. The review connects these measures to real applications across biological, social, and brain networks, including hypergraph settings where a single edge can join many nodes at once.",
-    ],
-    techStackHeading: "notable references",
-    techStack: [
-      { name: "Ollivier (2009)", role: "'Ricci curvature of Markov chains on metric spaces': the foundation of Ollivier-Ricci curvature, one of the two measures the review centers on" },
-      { name: "Forman (2003)", role: "'Bochner's method for cell complexes and combinatorial Ricci curvature': origin of Forman-Ricci curvature, the discrete measure that scales to large networks" },
-      { name: "Perelman (2002)", role: "'The entropy formula for the Ricci flow': the celebrated Ricci-flow work that motivates carrying curvature into discrete settings" },
-      { name: "Albert & Barabási (2002)", role: "'Statistical mechanics of complex networks': the foundational survey of complex-network structure the review builds on" },
-      { name: "Sia, Jonckheere & Bogdan (2021)", role: "Ollivier-Ricci curvature for community detection (Nature Communications), a flagship application the review surveys" },
-      { name: "Chatterjee, Albert & DasGupta (2021)", role: "Forman-Ricci curvature for anomaly detection in human brain networks (Scientific Reports), application work from the same group" },
     ],
     challenges: [
       {

@@ -206,39 +206,43 @@ export default async function ProjectPage({
           <SubHeading>snapshots</SubHeading>
           <Snapshots shots={project.screenshots} slug={project.slug} />
 
-          <SubHeading>{project.techStackHeading ?? "how it's built"}</SubHeading>
-          <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
-            {project.techStack.map((t) => (
-              <div
-                key={t.name}
-                style={{
-                  display: "flex",
-                  gap: "1rem",
-                  padding: "0.9rem 1.1rem",
-                  background: "var(--surface)",
-                  border: "1px solid var(--border)",
-                  borderRadius: "var(--radius-lg)",
-                  alignItems: "baseline",
-                  flexWrap: "wrap",
-                }}
-              >
-                <span
-                  style={{
-                    fontFamily: "var(--font-mono), monospace",
-                    fontSize: "13px",
-                    color: "var(--primary-light)",
-                    whiteSpace: "nowrap",
-                    minWidth: "160px",
-                  }}
-                >
-                  {t.name}
-                </span>
-                <span style={{ fontSize: "14.5px", color: "var(--text-secondary)", lineHeight: 1.6, flex: 1, minWidth: "200px" }}>
-                  {t.role}
-                </span>
+          {project.techStack && project.techStack.length > 0 && (
+            <>
+              <SubHeading>{project.techStackHeading ?? "how it's built"}</SubHeading>
+              <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+                {project.techStack.map((t) => (
+                  <div
+                    key={t.name}
+                    style={{
+                      display: "flex",
+                      gap: "1rem",
+                      padding: "0.9rem 1.1rem",
+                      background: "var(--surface)",
+                      border: "1px solid var(--border)",
+                      borderRadius: "var(--radius-lg)",
+                      alignItems: "baseline",
+                      flexWrap: "wrap",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-mono), monospace",
+                        fontSize: "13px",
+                        color: "var(--primary-light)",
+                        whiteSpace: "nowrap",
+                        minWidth: "160px",
+                      }}
+                    >
+                      {t.name}
+                    </span>
+                    <span style={{ fontSize: "14.5px", color: "var(--text-secondary)", lineHeight: 1.6, flex: 1, minWidth: "200px" }}>
+                      {t.role}
+                    </span>
+                  </div>
+                ))}
               </div>
-            ))}
-          </div>
+            </>
+          )}
 
           <SubHeading>challenges &amp; learnings</SubHeading>
           <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem" }}>
