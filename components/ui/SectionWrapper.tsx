@@ -14,6 +14,7 @@ export function SectionWrapper({
         maxWidth: "1100px",
         margin: "0 auto",
         padding: "6rem 1.5rem",
+        scrollMarginTop: "72px",
         ...style,
       }}
     >

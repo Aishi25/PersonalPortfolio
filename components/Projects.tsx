@@ -62,7 +62,7 @@ export function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    style={{ fontSize: "14px", color: "var(--primary-light)", textDecoration: "none", fontWeight: 500 }}
+                    style={{ fontSize: "15px", color: "var(--primary-light)", textDecoration: "none", fontWeight: 600 }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
                     onMouseLeave={(e) => (e.currentTarget.style.color = "var(--primary-light)")}
                   >
@@ -75,9 +75,9 @@ export function Projects() {
                     target="_blank"
                     rel="noopener noreferrer"
                     onClick={(e) => e.stopPropagation()}
-                    style={{ fontSize: "14px", color: "var(--text-secondary)", textDecoration: "none", fontWeight: 500 }}
+                    style={{ fontSize: "15px", color: "var(--primary-light)", textDecoration: "none", fontWeight: 600 }}
                     onMouseEnter={(e) => (e.currentTarget.style.color = "var(--text)")}
-                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--text-secondary)")}
+                    onMouseLeave={(e) => (e.currentTarget.style.color = "var(--primary-light)")}
                   >
                     ↗ github
                   </a>
@@ -115,10 +115,10 @@ export function Projects() {
                 onClick={(e) => e.stopPropagation()}
                 style={{
                   marginLeft: "auto",
-                  fontSize: "13px",
+                  fontSize: "15px",
                   color: "var(--primary-light)",
                   textDecoration: "none",
-                  fontWeight: 500,
+                  fontWeight: 600,
                 }}
               >
                 learn more →
