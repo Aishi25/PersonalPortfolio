@@ -8,7 +8,7 @@ function Placeholder({ label, hint }: { label: string; hint: string }) {
   return (
     <div
       style={{
-        aspectRatio: "16 / 10",
+        aspectRatio: "6 / 5",
         borderRadius: "var(--radius-lg)",
         border: "1.5px dashed var(--border)",
         background: "var(--surface)",
@@ -90,7 +90,13 @@ export function Snapshots({ shots, slug }: { shots: Screenshot[]; slug: string }
                   alt={shot.caption}
                   width={1200}
                   height={750}
-                  style={{ width: "100%", height: "auto", display: "block" }}
+                  style={{
+                    width: "100%",
+                    aspectRatio: "6 / 5",
+                    objectFit: "cover",
+                    objectPosition: "top",
+                    display: "block",
+                  }}
                 />
               </button>
             ) : (

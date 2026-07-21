@@ -68,8 +68,8 @@ export const PROJECTS: Project[] = [
     screenshots: [
       { src: "/images/projects/aeroseal-chatbot-before-1.png", caption: "Before: the landing screen offered no guidance on what to ask" },
       { src: "/images/projects/aeroseal-chatbot-after-1.png", caption: "After: an audience selector tailors responses to each user" },
-      { src: null, caption: "Before: conversation flow prior to the prompt redesign" },
-      { src: null, caption: "After: the redesigned conversation flow" },
+      { src: "/images/projects/aeroseal-chatbot-before-2.png", caption: "Before: the same question returned one generic, one-size-fits-all answer" },
+      { src: "/images/projects/aeroseal-chatbot-after-2.png", caption: "After: the reply is scoped to the chosen audience — note the 'Tailored for dealers' banner" },
     ],
     videoUrl: null,
   },
