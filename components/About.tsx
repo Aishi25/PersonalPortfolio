@@ -72,7 +72,7 @@ function TraitTypewriter() {
 
 export function About() {
   return (
-    <SectionWrapper id="about" style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
+    <SectionWrapper id="about" accent="teal" style={{ paddingTop: "3rem", paddingBottom: "3rem" }}>
       <SectionLabel>about</SectionLabel>
 
       <div
