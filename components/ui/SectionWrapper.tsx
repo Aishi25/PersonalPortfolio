@@ -12,11 +12,13 @@ export function SectionWrapper({
   children,
   style,
   accent,
+  divider,
 }: {
   id?: string;
   children: React.ReactNode;
   style?: React.CSSProperties;
   accent?: AccentName;
+  divider?: boolean;
 }) {
   return (
     <section
@@ -30,6 +32,20 @@ export function SectionWrapper({
         ...style,
       }}
     >
+      {divider && (
+        <div
+          aria-hidden
+          style={{
+            height: "3px",
+            width: "100%",
+            marginBottom: "3.5rem",
+            borderRadius: "3px",
+            background:
+              "linear-gradient(90deg, transparent 0%, var(--primary) 50%, transparent 100%)",
+            boxShadow: "0 0 16px -2px var(--primary-dim)",
+          }}
+        />
+      )}
       {children}
     </section>
   );

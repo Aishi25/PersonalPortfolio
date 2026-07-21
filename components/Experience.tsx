@@ -212,7 +212,7 @@ export function Experience() {
   }, []);
 
   return (
-    <SectionWrapper id="experience" accent="violet" style={{ paddingTop: "3rem" }}>
+    <SectionWrapper id="experience" accent="violet" divider style={{ paddingTop: "3rem" }}>
       <SectionLabel>experience</SectionLabel>
       <SectionHeading>where i&apos;ve worked</SectionHeading>
 
