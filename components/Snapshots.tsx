@@ -60,8 +60,10 @@ export function Snapshots({ shots, slug }: { shots: Screenshot[]; slug: string }
       <div
         style={{
           display: "grid",
-          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 400px), 1fr))",
+          gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 300px), 1fr))",
           gap: "1.25rem",
+          maxWidth: "700px",
+          margin: "0 auto",
         }}
       >
         {shots.map((shot, i) => (
