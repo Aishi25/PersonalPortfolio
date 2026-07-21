@@ -25,6 +25,7 @@ export type Project = {
   challenges: { title: string; body: string }[];
   screenshots: Screenshot[];
   videoUrl: string | null; // e.g. "/videos/rxguard-demo.mp4"
+  hideDemoVideo?: boolean; // omit the demo video section entirely (e.g. for a paper)
 };
 
 export const PROJECTS: Project[] = [
@@ -187,9 +188,10 @@ export const PROJECTS: Project[] = [
       },
     ],
     screenshots: [
-      { src: null, caption: "Figure from the paper: curvature measures on a network" },
+      { src: "/images/projects/prof_paper.png", caption: "The published chapter on SpringerLink" },
     ],
     videoUrl: null,
+    hideDemoVideo: true,
   },
   {
     slug: "terratrends",

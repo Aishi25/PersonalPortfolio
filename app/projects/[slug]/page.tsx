@@ -184,23 +184,27 @@ export default async function ProjectPage({
             ))}
           </div>
 
-          <SubHeading>demo video</SubHeading>
-          {project.videoUrl ? (
-            <video
-              src={project.videoUrl}
-              controls
-              style={{
-                width: "100%",
-                borderRadius: "var(--radius-lg)",
-                border: "1px solid var(--border)",
-              }}
-            />
-          ) : (
-            <Placeholder
-              label="Demo video coming soon"
-              hint={`add /public/videos/${project.slug}-demo.mp4 and set videoUrl in content/projects.ts`}
-              aspect="16 / 9"
-            />
+          {!project.hideDemoVideo && (
+            <>
+              <SubHeading>demo video</SubHeading>
+              {project.videoUrl ? (
+                <video
+                  src={project.videoUrl}
+                  controls
+                  style={{
+                    width: "100%",
+                    borderRadius: "var(--radius-lg)",
+                    border: "1px solid var(--border)",
+                  }}
+                />
+              ) : (
+                <Placeholder
+                  label="Demo video coming soon"
+                  hint={`add /public/videos/${project.slug}-demo.mp4 and set videoUrl in content/projects.ts`}
+                  aspect="16 / 9"
+                />
+              )}
+            </>
           )}
 
           <SubHeading>snapshots</SubHeading>
