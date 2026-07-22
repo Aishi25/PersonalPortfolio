@@ -340,9 +340,10 @@ export function Hero() {
               textAlign: "center",
               marginTop: "2.5rem",
               fontFamily: "var(--font-mono), monospace",
-              fontSize: "14px",
-              color: "var(--text-muted)",
-              letterSpacing: "0.1em",
+              fontSize: "clamp(1.375rem, 3vw, 1.875rem)",
+              fontWeight: 600,
+              color: "var(--primary-light)",
+              letterSpacing: "0.08em",
             }}
           >
             Scroll to explore ↓
