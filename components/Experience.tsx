@@ -37,6 +37,7 @@ const COMPANIES: Company[] = [
         bullets: [
           "Led the **retrieval and prompt architecture** behind Aeroseal's **live, customer-facing chatbot** as the AI intern on the team",
           "Diagnosed and troubleshot existing issues in the **ingestion pipeline**",
+          "Built a **Sealing Log Analyzer** that turns millions of production logs into a ranked dashboard, surfacing software bugs buried in the noise",
         ],
         slug: "aeroseal-chatbot",
       },
