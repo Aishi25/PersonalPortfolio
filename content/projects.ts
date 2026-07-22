@@ -32,7 +32,7 @@ export const PROJECTS: Project[] = [
   {
     slug: "aeroseal-chatbot",
     name: "Aeroseal Chatbot",
-    badge: "AI/ML Intern · 2026",
+    badge: "AI Intern · 2026",
     badgeAccent: true,
     tagline: "Production RAG chatbot for Aeroseal's customer-facing site, rebuilt around a 2-tier prompt architecture.",
     bullets: [

@@ -45,7 +45,7 @@ const COMPANIES: Company[] = [
   },
   {
     org: "GT Big Data Big Impact",
-    date: "Aug 2025 – Apr 2026 · 9 mos",
+    date: "Aug 2025 – ongoing",
     positions: [
       {
         role: "Machine Learning Analyst · Terra Trends",
