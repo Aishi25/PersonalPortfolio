@@ -33,7 +33,7 @@ const COMPANIES: Company[] = [
     positions: [
       {
         role: "Artificial Intelligence Intern",
-        date: "Jun 2026 – present",
+        date: "Jun 2026 – July 2026",
         bullets: [
           "Led the **retrieval and prompt architecture** behind Aeroseal's **live, customer-facing chatbot** as the AI intern on the team",
           "Diagnosed and troubleshot existing issues in the **ingestion pipeline**",
