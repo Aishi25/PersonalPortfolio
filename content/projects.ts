@@ -36,9 +36,9 @@ export const PROJECTS: Project[] = [
     badgeAccent: true,
     tagline: "Production RAG chatbot for Aeroseal's customer-facing site, rebuilt around a 2-tier prompt architecture.",
     bullets: [
-      "Redesigned conversational flow through iterative system prompt tuning for structured intent handling",
-      "Built session-based conversation tracking into the SQL backend",
-      "Fixed a vector store ingestion pipeline bug leaving stale, searchable copies when webpages updated",
+      "Rebuilt the conversational flow around a 2-tier prompt architecture, adding intent- and audience-based routing to keep responses tailored and grounded",
+      "Engineered the retrieval system's vector-store ingestion, reworking how stale content was handled to cut hallucinations from outdated pages",
+      "Built session-based conversation tracking into the SQL backend to preserve context across multi-turn exchanges",
     ],
     tags: ["OpenAI API", "RAG", "SQL", "Azure"],
     demo: "https://chat.aeroseal.com",
