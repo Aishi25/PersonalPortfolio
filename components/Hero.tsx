@@ -11,7 +11,7 @@ const RESPONSE_LINES = [
   { text: "Key Achievements:", type: "label" },
   { text: "→ AI/ML Intern @ Aeroseal: Built production RAG chatbot on a 2-tier prompt architecture", type: "bullet" },
   { text: "→ Director of Workshops @ GT Big Data Big Impact: Designing semester-long ML project for 100+ students", type: "bullet" },
-  { text: "→ Machine Learning Analyst @ GT Big Data Big Impact: Building LSTM economic forecasting to guide small business expansion", type: "bullet" },
+  { text: "→ Machine Learning Analyst @ GT Big Data Big Impact: Building LSTM economic forecasting for small business expansion", type: "bullet" },
   { text: "→ RxGuard: Built AI drug analyzer with 11.5M+ FAERS records · 2nd place Hacklytics 2026", type: "bullet" },
   { text: "→ Springer paper (2026): Analyzed hypergraph curvature in drug-target interactions, co-authored at 17", type: "bullet" },
   { text: "---", type: "divider" },
