@@ -234,11 +234,12 @@ export function About() {
             }}
           >
             I love integrating creativity into software, whether that&apos;s
-            building <span style={{ color: "var(--text)" }}>AI-powered applications</span>,{" "}
-            <span style={{ color: "var(--text)" }}>prompt engineering</span>, or
-            extracting insights from{" "}
-            <span style={{ color: "var(--text)" }}>large-scale datasets</span>. Along the way I&apos;ve contributed to
-            published research, shipped software for companies, and placed at
+            architecting <span style={{ color: "var(--text)" }}>RAG pipelines</span> to
+            battle hallucination,{" "}
+            structuring <span style={{ color: "var(--text)" }}>LLM prompts</span> into
+            tiered systems for reliable responses, or pulling signal out of{" "}
+            <span style={{ color: "var(--text)" }}>million-row datasets</span>. Along the way I&apos;ve contributed to
+            production software for companies, published research, and placed at
             hackathons.
           </p>
 
@@ -250,13 +251,17 @@ export function About() {
               marginBottom: "1.25rem",
             }}
           >
-            Somehow, I&apos;ve also found the time to act as Co-Director of
-            Outreach for{" "}
-            <span style={{ color: "var(--text)" }}>Data Science @ GT</span>,
-            the largest student data club at Georgia Tech, and work as a Machine
-            Learning Analyst on an LSTM economic forecasting project under{" "}
+            Somehow, I&apos;ve also found the time to serve as Director of
+            Workshops at{" "}
             <span style={{ color: "var(--text)" }}>Big Data Big Impact</span>,
-            a club focused on AI for social good.
+            designing a semester-long applied ML project for{" "}
+            <span style={{ color: "var(--text)" }}>100+ students</span>, and as a
+            Machine Learning Analyst on{" "}
+            <span style={{ color: "var(--text)" }}>Terra Trends</span>, an LSTM
+            economic forecasting project. Outside of that, I&apos;m Co-Director
+            of Outreach for{" "}
+            <span style={{ color: "var(--text)" }}>Data Science @ GT</span>,
+            the largest student data club at Georgia Tech.
           </p>
 
           <p

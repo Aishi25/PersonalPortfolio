@@ -29,24 +29,18 @@ type Company = {
 
 const COMPANIES: Company[] = [
   {
-    org: "Aeroseal",
-    positions: [
-      {
-        role: "Artificial Intelligence Intern",
-        date: "Jun 2026 – July 2026",
-        bullets: [
-          "Architected the **RAG pipeline and vector DB ingestion** powering Aeroseal's production, customer-facing LLM chatbot",
-          "Engineered prompt structure with **intent and audience-based routing** for reliable, on-brand responses",
-          "Built a **Sealing Log Analyzer** that turns millions of production logs into a ranked dashboard, surfacing software bugs buried in the noise",
-        ],
-        slug: "aeroseal-chatbot",
-      },
-    ],
-  },
-  {
     org: "GT Big Data Big Impact",
     date: "Aug 2025 – ongoing",
     positions: [
+      {
+        role: "Director of Workshops",
+        date: "",
+        bullets: [
+          "Design and lead a **semester-long applied ML curriculum** for **100+ students**, taking members from raw data to a **containerized model deployed on Google Cloud Run**",
+          "Scope each build across **analysis, platform, and data viz tracks**, covering classification and feature engineering, **FastAPI + Docker** services, and React interfaces so beginners ship a real end-to-end product",
+        ],
+        slug: null,
+      },
       {
         role: "Machine Learning Analyst · Terra Trends",
         date: "",
@@ -64,6 +58,21 @@ const COMPANIES: Company[] = [
           "Integrated the **Google Gemini API** for conversational recommendations and response generation",
         ],
         slug: null,
+      },
+    ],
+  },
+  {
+    org: "Aeroseal",
+    positions: [
+      {
+        role: "Artificial Intelligence Intern",
+        date: "Jun 2026 – July 2026",
+        bullets: [
+          "Architected the **RAG pipeline and vector DB ingestion** powering Aeroseal's production, customer-facing LLM chatbot",
+          "Engineered prompt structure with **intent and audience-based routing** for reliable, on-brand responses",
+          "Built a **Sealing Log Analyzer** that turns millions of production logs into a ranked dashboard, surfacing software bugs buried in the noise",
+        ],
+        slug: "aeroseal-chatbot",
       },
     ],
   },
