@@ -36,8 +36,8 @@ const COMPANIES: Company[] = [
         role: "Director of Workshops",
         date: "",
         bullets: [
-          "Design and lead a **semester-long applied ML curriculum** for **100+ students**, taking members from raw data to a **containerized model deployed on Google Cloud Run**",
-          "Scope each build across **analysis, platform, and data viz tracks**, covering classification and feature engineering, **FastAPI + Docker** services, and React interfaces so beginners ship a real end-to-end product",
+          "Lead a **semester-long ML curriculum** for **100+ students**, from raw data to deployed models",
+          "Scope builds across **analysis, platform, and data viz**: **FastAPI + Docker**, React interfaces",
         ],
         slug: null,
       },
